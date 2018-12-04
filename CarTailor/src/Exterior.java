@@ -1,7 +1,5 @@
 package carTailor;
 
-import java.util.Set;
-
 public enum Color {
 	XC;
 	XM;
@@ -20,5 +18,5 @@ public class Exterior extends PartImpl {
 	public String getColor() {
 		return printColor.name();
 	}
-	Set <String> possibleColors=new HashSet<>();	
+	Set<String> possibleColors=new HashSet<>();	
 }

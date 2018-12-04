@@ -24,5 +24,5 @@ public class Transmission extends PartImpl {
 	public String getColor() {
 		return printColor.name();
 	}
-	Set<E> <String> possibleColors=new HashSet<>();	
+	Set<String> possibleColors=new HashSet<>();	
 }

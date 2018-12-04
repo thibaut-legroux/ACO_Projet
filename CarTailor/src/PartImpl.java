@@ -20,6 +20,4 @@ public class PartImpl implements Part
 		s.println("</BODY>");
 		s.println("</FOOTER>");
 	}
-
 }
-
