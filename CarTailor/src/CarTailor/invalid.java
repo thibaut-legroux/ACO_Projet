@@ -1,7 +1,0 @@
-package carTailor;
-
-public  interface  
-{
-
-}
-
