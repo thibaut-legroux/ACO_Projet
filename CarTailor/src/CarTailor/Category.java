@@ -1,14 +1,8 @@
 package carTailor;
 
-import Part;
+import java.util.Iterator;
 
-public class Category
-{
-	public Part Part;
-
-	public Category(){
-		super();
-	}
-
+public interface Category {
+	public void addPart(PartTypeImpl p);
+	public Iterator<PartType> removePart(PartType p);
 }
-

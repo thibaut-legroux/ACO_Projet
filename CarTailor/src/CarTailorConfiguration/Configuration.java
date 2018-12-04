@@ -1,20 +1,17 @@
 package carTailorConfigurator;
 
-import carTailor.Part;
+import java.util.Observable;
+import java.util.Vector;
+import java.util.concurrent.locks.Condition;
 
+public interface Configuration extends CompatibilityChecker {
 
+  public boolean iSCompatible();
 
-public  interface Configuration 
-{
-	public Part Deselectionner() ;
-	
-	public Part GetPartFromCategory() ;
-	
-	public Part RemovePart() ;
+  public boolean iSValide();
 
-	public boolean isComplete() ;
+  public void addPart(Part part);
 
-	public boolean isValide() ;
+  public void removePart(Part part);
 
 }
-
