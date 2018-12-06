@@ -26,8 +26,8 @@ public class ConfigurationImpl implements Configuration , Observer,Compatibility
 	}
 	
 	@Override
-	public void update(fr.istic.project.ACO1819.Observable o) {
-		//à faire
+	public void update() {
+		//Ã  faire
 	}
 	@Override
 	public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
