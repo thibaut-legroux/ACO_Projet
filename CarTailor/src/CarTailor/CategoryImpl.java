@@ -17,7 +17,9 @@ public  enum CategoryImpl implements Category {
 			this.name = name;
 			parts = new ArrayList<>();
 		}
-		
+
+
+
 		@Override
 		public void addPart(PartTypeImpl p) {
 			if(parts.contains(p)) {
@@ -25,6 +27,7 @@ public  enum CategoryImpl implements Category {
 			}else {
 				try {
 					throw new  ConflictingRoleException("the partType isn't exists");
+					parts.add(p);
 				} catch (ConflictingRoleException e) {
 					e.printStackTrace();
 				}
@@ -34,5 +37,9 @@ public  enum CategoryImpl implements Category {
 		public Iterator<PartType> removePart(PartType p) {
 			Iterator<PartType> it = this.parts.iterator() ;
 			return it;
-		}	
+		}
+
+		public List<PartType> getPart(){
+			return this.parts;
+		}
 }

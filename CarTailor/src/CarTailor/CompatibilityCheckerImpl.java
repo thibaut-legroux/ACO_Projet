@@ -9,5 +9,5 @@ public class CompatibilityCheckerImpl implements CompatibilityChecker {
 
 	@Override
 	public Iterator<PartType> getRequirements(PartType refPar) {
-				return refPar.getRequirement();
+		return refPar.getRequirement();
 	}

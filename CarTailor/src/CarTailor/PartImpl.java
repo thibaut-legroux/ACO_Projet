@@ -15,22 +15,18 @@ public class PartImpl implements Part {
 		//this.listPartType = new ArrayList<Part>();
 	}
 
-//	public void setPartType(Part p) {
-//		if(!this.listPartType.contains(p)) {
-//			listPartType.add(p);
-//		}else {
-//			try {
-//				throw new  ConflictingRoleException("the partType already exists");
-//			} catch (ConflictingRoleException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-
-	@Override
 	public void setPartType(Part p) {
-		// TODO Auto-generated method stub
+		if(!this.listPartType.contains(p)) {
+			listPartType.add(p);
+		}else {
+			try {
+				throw new  ConflictingRoleException("the partType already exists");
+			} catch (ConflictingRoleException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+
 	@Override
 	public Iterator<PartType> getPartType() {	
 		return listPartType.iterator();

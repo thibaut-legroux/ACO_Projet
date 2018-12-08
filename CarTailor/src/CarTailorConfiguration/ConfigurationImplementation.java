@@ -67,7 +67,7 @@ public class ConfigurationImpl implements Configuration , Observer,Compatibility
 		Iterator<Part> it = this.listPart.iterator();
 		while(it.hasNext()) {
 		//Iterator<PartType> itCollectionPartType	= it.next().getPart();
-			
+
 			 
 		}
 		// TODO Auto-generated method stub
