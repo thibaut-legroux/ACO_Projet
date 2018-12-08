@@ -1,22 +1,30 @@
-package carTailor;
+package CarTailor.src.CarTailor;
 
-public enum Color {
-	IN;
-	IH;
+import CarTailor.src.CarTailor.PartImpl;
+import CarTailor.src.CarTailor.color;
+
+import java.util.HashSet;
+import java.util.Set;
+
+enum name {
+	IN,
+	IH,
 	IS;
 }
 
+
+
 public class Interior extends PartImpl {
-	private Color printColor = color.IN;//par défaut
-	
-	public Exterior(){
-		possibleColors.add(color.IH.name());
-		possibleColors.add(color.IS.name());
-		addProperty("color", ()->getColor(),(c)->setColor(c), possibleColors);
+	private name printname = name.IN;//par d?faut
+
+	public Interior(){
+		possibleColors.add(name.IH.name());possibleColors.add(name.IS.name());possibleColors.add(name.IN.name());
+
 	}
-	
-	public String getColor() {
-		return printColor.name();
+
+	public String getName() {
+		return printname.name();
 	}
-	Set<String> possibleColors=new HashSet<>();	
+	Set<String> possibleColors=new HashSet<>();
+
 }
