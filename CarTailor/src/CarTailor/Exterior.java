@@ -1,22 +1,26 @@
-package carTailor;
+package CarTailor.src.CarTailor;
 
-public enum Color {
-	XC;
-	XM;
+import CarTailor.src.CarTailor.PartImpl;
+
+import java.util.HashSet;
+import java.util.Set;
+
+enum Color {
+	XC,
+	XM,
 	XS;
 }
 
 public class Exterior extends PartImpl {
-	private Color printColor = color.XC;//par défaut
+	private Color printColor = Color.XC;//par dï¿½faut
 	
 	public Exterior(){
-		possibleColors.add(color.XM.name());
-		possibleColors.add(color.XS.name());
-		addProperty("color", ()->getColor(),(c)->setColor(c), possibleColors);
+		possibleColors.add(Color.XM.name());
+		possibleColors.add(Color.XS.name());
 	}
 	
 	public String getColor() {
 		return printColor.name();
 	}
-	Set<String> possibleColors=new HashSet<>();	
+	Set<String> possibleColors=new HashSet<>();
 }

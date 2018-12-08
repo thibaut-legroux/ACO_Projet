@@ -1,3 +1,7 @@
+package CarTailor.src.CarTailor;
+
+import CarTailor.PartType;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -14,7 +18,6 @@ public class CompatibleManagerImpl implements CompatibleManager {
 		refPart.addingIncompability(CollectPart);
 	}
 
-	@Override
 	public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
 		return refPar.getIncompPartType();
 	}
@@ -73,8 +76,7 @@ public class CompatibleManagerImpl implements CompatibleManager {
 			}
 		}		
 	}
-	
-	@Override
+
 	public Iterator<PartType> getRequirements(PartType refPart) {
 		return refPart.getRequirement();
 	}	

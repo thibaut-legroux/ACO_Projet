@@ -1,18 +1,15 @@
-package carTailorConfigurator;
-
-import invalid;
-import carTailor.Incomptatibility;
+package CarTailor.src.CarTailorConfiguration;
 
 public  interface Configurator 
 {
 
-    public Requierement requierement = null;
+    public CarTailor.src.CarTailorConfiguration.Requierement requierement = null;
 
-	public  addIncompatibility(Incomptatibility inc) ;
+	public void addIncompatibility(Incomptatibility inc) ;
 	
-	public  addRequirement(Requierement req) ;
+	public void addRequirement(CarTailor.src.CarTailorConfiguration.Requierement req) ;
 
-	public  removeIncompatibility(Incomptatibility inc) ;
+	public void removeIncompatibility(Incomptatibility inc) ;
 
 }
 

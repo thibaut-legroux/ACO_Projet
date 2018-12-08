@@ -1,4 +1,9 @@
-package carTailor;
+package CarTailor.src.CarTailor;
+
+import CarTailor.PartType;
+import CarTailor.PartTypeImpl;
+import CarTailor.src.CarTailor.Category;
+import CarTailor.src.CarTailor.ConflictingRoleException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +17,7 @@ public  enum CategoryImpl implements Category {
 		Interrior("Interrior");	
 		
 		private String name;
-		private List<PartType> parts; 
+		private List<PartType> parts;
 		private CategoryImpl(String name) {
 			this.name = name;
 			parts = new ArrayList<>();
@@ -26,14 +31,15 @@ public  enum CategoryImpl implements Category {
 				this.parts.remove(p);
 			}else {
 				try {
-					throw new  ConflictingRoleException("the partType isn't exists");
-					parts.add(p);
+					throw new ConflictingRoleException("the partType isn't exists");
 				} catch (ConflictingRoleException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		@Override
+
+
+	@Override
 		public Iterator<PartType> removePart(PartType p) {
 			Iterator<PartType> it = this.parts.iterator() ;
 			return it;
@@ -42,4 +48,5 @@ public  enum CategoryImpl implements Category {
 		public List<PartType> getPart(){
 			return this.parts;
 		}
+
 }

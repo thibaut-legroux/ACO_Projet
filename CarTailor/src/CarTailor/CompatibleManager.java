@@ -1,9 +1,13 @@
+package CarTailor.src.CarTailor;
+
+import CarTailor.PartType;
+
 import java.util.Collection;
 import java.util.Iterator;
 
 public interface CompatibleManager extends CompatibilityChecker {
 	
-  public void removeInCompPartType(PartType refPart,Collection<PartType> collectPart);
+  public void removeInCompPartType(PartType refPart, Collection<PartType> collectPart);
   
   public void addInCompPartType(PartType refPart,Iterator<PartType> collectPartType);
 

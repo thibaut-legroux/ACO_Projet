@@ -1,4 +1,8 @@
-package CarTailor;
+package CarTailor.src.CarTailor;
+
+import CarTailor.src.CarTailor.Category;
+import CarTailor.src.CarTailor.ConflictingRoleException;
+import CarTailor.src.CarTailor.Part;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -8,13 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public  class PartTypeImpl implements PartType {
+public  class PartTypeImpl implements CarTailor.PartType {
 
     public String name;
 	private Category category;
 	private Collection<Part> parts;
-	private Collection<PartType> incompatibleParts;
-	private Collection<PartType> requirementPart;
+	private Collection<CarTailor.PartType> incompatibleParts;
+	private Collection<CarTailor.PartType> requirementPart;
 	private String description;
 	private Class<? extends Part>Classref; 
 //constructor
@@ -25,7 +29,7 @@ public  class PartTypeImpl implements PartType {
 //  }
 	
 	public PartTypeImpl(){
-		//à faire
+		//ï¿½ faire
 	}
 
 	public  PartTypeImpl(String name, String description, Category category, Class<? extends Part> classref) {
@@ -41,19 +45,19 @@ public  class PartTypeImpl implements PartType {
 		 return Constructor.newInstance();	 
 	 }
 	
-	public Iterator<PartType> getIncompatibleParts() {
+	public Iterator<CarTailor.PartType> getIncompatibleParts() {
 			return incompatibleParts.iterator();
 		}
 
-	public void setIncompatibleParts(Collection<PartType> incompatibleParts) {
+	public void setIncompatibleParts(Collection<CarTailor.PartType> incompatibleParts) {
 			this.incompatibleParts = incompatibleParts;
 		}
 
-	public Iterator<PartType> getRequirementPart() {
+	public Iterator<CarTailor.PartType> getRequirementPart() {
 			return null;
 		}
 
-	public void setRequirementPart(Collection<PartType> requirementPart) {
+	public void setRequirementPart(Collection<CarTailor.PartType> requirementPart) {
 			this.requirementPart = requirementPart;
 	}
 	
@@ -61,20 +65,18 @@ public  class PartTypeImpl implements PartType {
 	public String getdescription() {
 		return this.description;
 	}
-	
 
-	@Override
 	/*les cas a gerer pour ajouter un imcompatibility a un partType
 	 * 1 quand il n'est pas dans les requirements on l'ajoute 
 	 * 2 quand il est dja dans la liste des incompatibmes on fait rien 
 	 * 3
 	 */
-	public void addingIncompability(Iterator<PartType> CollectiontPartType) {
+	public void addingIncompability(Iterator<CarTailor.PartType> CollectiontPartType) {
 		//Objects.requireNonNull(refPart);
 		
 		Objects.requireNonNull(CollectiontPartType);
-		List<PartType> listimcompa =  new ArrayList();
-		List<PartType> listRequements = new ArrayList();
+		List<CarTailor.PartType> listimcompa =  new ArrayList();
+		List<CarTailor.PartType> listRequements = new ArrayList();
 		while(this.getRequirement().hasNext()) {
 			listRequements.add(this.getRequirement().next());
 		}
@@ -83,7 +85,7 @@ public  class PartTypeImpl implements PartType {
 			listimcompa.add(CollectiontPartType.next());
 		}
 		
-		for(PartType partType : listimcompa) {
+		for(CarTailor.PartType partType : listimcompa) {
 			//si t
 			    if(listRequements.contains(partType)) {
 					try {
@@ -104,12 +106,12 @@ public  class PartTypeImpl implements PartType {
 	}
 
 	@Override
-	public Iterator<PartType> getRequirement() {		
+	public Iterator<CarTailor.PartType> getRequirement() {
 		return this.getRequirement();
 	}
 
 	@Override
-	public Iterator<PartType> getIncompPartType() {
+	public Iterator<CarTailor.PartType> getIncompPartType() {
 		return this.getIncompPartType();
 	}
 

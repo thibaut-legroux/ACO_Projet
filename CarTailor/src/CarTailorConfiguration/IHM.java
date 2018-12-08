@@ -1,21 +1,18 @@
-package carTailorConfigurator;
-import invalid;
+package CarTailor.src.CarTailorConfiguration;
 
-public class IHM implements Observer(T)
-{
-public static void main(String[] args){
+public class IHM implements Observer(T){
+public IHM(){
+        super();
+        }
 
-		JFrame fenetre = new JFrame();
+public void update(Observable(T)Observable(T)){
+        // TODO implement me
+        return null;
+        }
 
 
-	public IHM(){
-		super();
-	}
+public static void main(String[]args){
 
-	public  update(Observable(T) Observable(T)) {
-		// TODO implement me
-		return null;
-	}
+        JFrame fenetre=new JFrame();
 
-}
-
+        }

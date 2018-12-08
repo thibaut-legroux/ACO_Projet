@@ -1,14 +1,16 @@
-package carTailorConfigurator;
+package CarTailor.src.CarTailorConfiguration;
+
+import CarTailor.src.CarTailor.CompatibilityChecker;
+import CarTailor.src.CarTailor.Part;
+import CarTailor.src.CarTailor.PartType;
+import carTailorConfigurator.Observable;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Observable;
-import java.util.Set;
-import java.util.concurrent.locks.Condition;
 
-public class ConfigurationImpl implements Configuration , Observer,CompatibilityChecker{
+public class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
   
 	public Collection<Part> listPart;
 	@Override
@@ -24,11 +26,15 @@ public class ConfigurationImpl implements Configuration , Observer,Compatibility
 			listPart.remove(part);
 		}
 	}
-	
-	@Override
-	public void update() {
-		//à faire
+
+	public void update(Observable o) {
+
 	}
+
+	public void update(CarTailor.src.CarTailor.ObservableImpl<T> tObservable) {
+
+	}
+
 	@Override
 	public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
 		return refPar.getIncompPartType();

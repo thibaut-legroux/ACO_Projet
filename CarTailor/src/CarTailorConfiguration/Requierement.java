@@ -1,4 +1,6 @@
-package carTailorConfigurator;
+package CarTailor.src.CarTailorConfiguration;
+
+import CarTailor.src.CarTailorConfiguration.Configurator;
 
 public class Requierement
 {
@@ -7,5 +9,7 @@ public class Requierement
 	public Requierement(){
 		super();
 	}
+
+	//TO DO
 }
 

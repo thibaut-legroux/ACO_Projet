@@ -1,4 +1,7 @@
-package carTailor;
+package CarTailor.src.CarTailor;
+
+import CarTailor.PartType;
+import CarTailor.PartTypeImpl;
 
 import java.util.Iterator;
 
