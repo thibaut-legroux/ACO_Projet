@@ -1,12 +1,8 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailor.PartImpl;
-import CarTailor.src.CarTailor.color;
+import java.util.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
-enum name {
+enum nom {
 	IN,
 	IH,
 	IS;
@@ -15,16 +11,21 @@ enum name {
 
 
 public class Interior extends PartImpl {
-	private name printname = name.IN;//par d?faut
+	private nom printname = nom.IN;//par d?faut
 
 	public Interior(){
-		possibleColors.add(name.IH.name());possibleColors.add(name.IS.name());possibleColors.add(name.IN.name());
+		possibleColors.add(nom.IH.name());possibleColors.add(nom.IS.name());possibleColors.add(nom.IN.name());
+	}
 
+	public Iterator<String> getContent(){
+			return possibleColors.iterator();
 	}
 
 	public String getName() {
 		return printname.name();
 	}
-	Set<String> possibleColors=new HashSet<>();
+	List<String> possibleColors = new ArrayList<String>();
+	//ArrayList possibleColors=new ArrayList<>();
+
 
 }

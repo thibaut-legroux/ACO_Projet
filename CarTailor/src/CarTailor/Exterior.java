@@ -3,6 +3,7 @@ package CarTailor.src.CarTailor;
 import CarTailor.src.CarTailor.PartImpl;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 enum couleur_exter {
@@ -24,4 +25,8 @@ public class Exterior extends PartImpl {
 		return print_couleur.name();
 	}
 	Set<String> possibleColors=new HashSet<>();
+
+	public Iterator<String> getContent(){
+		return possibleColors.iterator();
+	}
 }

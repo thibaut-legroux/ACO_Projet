@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
+class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
   
 	public Collection<Part> listPart;
 	@Override
@@ -28,11 +28,9 @@ public class ConfigurationImpl implements Configuration, Observer, Compatibility
 	}
 
 	public void update(Observable o) {
-
-	}
-
-	public void update(CarTailor.src.CarTailor.ObservableImpl<T> tObservable) {
-
+		if(listPart.contains(o)){
+			listPart.add((Part) o);
+		}
 	}
 
 	@Override

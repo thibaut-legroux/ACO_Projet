@@ -30,17 +30,19 @@ public class ObservableImpl<T> implements carTailorConfigurator.Observable {
 	@Override
 	public void addObserver(Observer o) {
 		observers.add(o);
-		
 	}
 
 	public void setEtat(int etat) {
-		etat = etat;
+		this.etat = etat;
 		notifyObservers();
 	}
 	
 	@Override
 	public boolean isRegistered(Observer o) {
-		// TODO Auto-generated method stub
-		return false;
+		if(observers.contains(o)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

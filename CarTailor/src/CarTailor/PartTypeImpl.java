@@ -12,13 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public  class PartTypeImpl implements CarTailor.PartType {
+public  class PartTypeImpl implements CarTailor.src.CarTailor.PartType {
 
     public String name;
 	private Category category;
 	private Collection<Part> parts;
-	private Collection<CarTailor.PartType> incompatibleParts;
-	private Collection<CarTailor.PartType> requirementPart;
+	private Collection<CarTailor.src.CarTailor.PartType> incompatibleParts;
+	private Collection<CarTailor.src.CarTailor.PartType> requirementPart;
 	private String description;
 	private Class<? extends Part>Classref; 
 //constructor
@@ -45,19 +45,19 @@ public  class PartTypeImpl implements CarTailor.PartType {
 		 return Constructor.newInstance();	 
 	 }
 	
-	public Iterator<CarTailor.PartType> getIncompatibleParts() {
+	public Iterator<CarTailor.src.CarTailor.PartType> getIncompatibleParts() {
 			return incompatibleParts.iterator();
 		}
 
-	public void setIncompatibleParts(Collection<CarTailor.PartType> incompatibleParts) {
+	public void setIncompatibleParts(Collection<CarTailor.src.CarTailor.PartType> incompatibleParts) {
 			this.incompatibleParts = incompatibleParts;
 		}
 
-	public Iterator<CarTailor.PartType> getRequirementPart() {
+	public Iterator<CarTailor.src.CarTailor.PartType> getRequirementPart() {
 			return null;
 		}
 
-	public void setRequirementPart(Collection<CarTailor.PartType> requirementPart) {
+	public void setRequirementPart(Collection<CarTailor.src.CarTailor.PartType> requirementPart) {
 			this.requirementPart = requirementPart;
 	}
 	
@@ -71,12 +71,12 @@ public  class PartTypeImpl implements CarTailor.PartType {
 	 * 2 quand il est dja dans la liste des incompatibmes on fait rien 
 	 * 3
 	 */
-	public void addingIncompability(Iterator<CarTailor.PartType> CollectiontPartType) {
+	public void addingIncompability(Iterator<CarTailor.src.CarTailor.PartType> CollectiontPartType) {
 		//Objects.requireNonNull(refPart);
 		
 		Objects.requireNonNull(CollectiontPartType);
-		List<CarTailor.PartType> listimcompa =  new ArrayList();
-		List<CarTailor.PartType> listRequements = new ArrayList();
+		List<CarTailor.src.CarTailor.PartType> listimcompa =  new ArrayList();
+		List<CarTailor.src.CarTailor.PartType> listRequements = new ArrayList();
 		while(this.getRequirement().hasNext()) {
 			listRequements.add(this.getRequirement().next());
 		}
@@ -85,7 +85,7 @@ public  class PartTypeImpl implements CarTailor.PartType {
 			listimcompa.add(CollectiontPartType.next());
 		}
 		
-		for(CarTailor.PartType partType : listimcompa) {
+		for(CarTailor.src.CarTailor.PartType partType : listimcompa) {
 			//si t
 			    if(listRequements.contains(partType)) {
 					try {
@@ -106,12 +106,12 @@ public  class PartTypeImpl implements CarTailor.PartType {
 	}
 
 	@Override
-	public Iterator<CarTailor.PartType> getRequirement() {
+	public Iterator<CarTailor.src.CarTailor.PartType> getRequirement() {
 		return this.getRequirement();
 	}
 
 	@Override
-	public Iterator<CarTailor.PartType> getIncompPartType() {
+	public Iterator<CarTailor.src.CarTailor.PartType> getIncompPartType() {
 		return this.getIncompPartType();
 	}
 

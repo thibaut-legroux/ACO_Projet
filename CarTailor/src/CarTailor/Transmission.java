@@ -1,6 +1,7 @@
 package CarTailor.src.CarTailor;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 enum color {
@@ -27,4 +28,8 @@ public class Transmission extends PartImpl {
 		return printColor.name();
 	}
 	Set<String> possibleColors=new HashSet<>();
+
+	public Iterator<String> getContent(){
+		return possibleColors.iterator();
+	}
 }

@@ -1,7 +1,6 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.PartType;
-import CarTailor.PartTypeImpl;
+
 import CarTailor.src.CarTailor.Category;
 import CarTailor.src.CarTailor.ConflictingRoleException;
 
