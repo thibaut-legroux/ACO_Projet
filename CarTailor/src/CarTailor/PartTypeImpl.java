@@ -22,12 +22,7 @@ public  class PartTypeImpl implements CarTailor.src.Interface.PartType {
 	private Collection<PartType> requirementPart;
 	private String description;
 	private Class<? extends Part>Classref; 
-//constructor
-//  
-//  public PartTypeImpl(String name,Class<? extends Part>Classref, CategoryImpl categoryImpl ) {
-//	  
-//	  
-//  }
+
 	
 	public PartTypeImpl(Category cat, Collection<Part> parts){
 		this.category=cat;
@@ -39,13 +34,7 @@ public  class PartTypeImpl implements CarTailor.src.Interface.PartType {
 		this.category = category;
 		this.Classref = classref;	
 	}
-  
-	public Part newInstancePart() throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		 Constructor<? extends Part>Constructor;
-		 Constructor = Classref.getConstructor();
-		 return Constructor.newInstance();	 
-	 }
-	
+
 	public Iterator<PartType> getIncompatibleParts() {
 			return incompatibleParts.iterator();
 		}
@@ -88,7 +77,6 @@ public  class PartTypeImpl implements CarTailor.src.Interface.PartType {
 		}
 		
 		for(PartType partType : listimcompa) {
-			//si t
 			    if(listRequements.contains(partType)) {
 					try {
 						throw new ConflictingRoleException("partType is a requirement");

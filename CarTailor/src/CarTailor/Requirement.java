@@ -5,18 +5,22 @@ import CarTailor.src.CarTailor.PartTypeImpl;
 import CarTailor.src.Interface.Configurator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Requirement extends IncompatibilityManager {
+public class Requirement {
 
 	public Configurator configurator;
+
+
+	HashMap<PartImpl, PartImpl> requirement = new HashMap<>();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public Requirement(){
-		super();
+	public Requirement(HashMap<PartImpl, PartImpl> require){
+		this.requirement = require;
 	}
 
 	/**

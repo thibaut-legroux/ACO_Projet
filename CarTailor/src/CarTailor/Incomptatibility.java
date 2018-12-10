@@ -6,17 +6,16 @@ import CarTailor.src.CarTailor.PartTypeImpl;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Incomptatibility extends IncompatibilityManager{
+public class Incomptatibility {
 
-
+    HashMap<PartImpl, PartImpl> incomptatibility = new HashMap<>();
     /**
      * <!-- begin-user-doc -->
      * <!--  end-user-doc  -->
      * @generated
      */
-    public Incomptatibility(HashMap<PartImpl,PartImpl> incomp, HashMap<PartImpl, PartImpl> require){
-
-        super(incomp,require);
+    public Incomptatibility(HashMap<PartImpl,PartImpl> incomp){
+        this.incomptatibility=incomp;
     }
 
 

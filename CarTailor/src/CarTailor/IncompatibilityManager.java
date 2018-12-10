@@ -1,5 +1,4 @@
 package CarTailor.src.CarTailor;
-package CarTailor.src.CarTailor;
 
 import CarTailor.src.Interface.Configurator;
 import CarTailor.src.Interface.Part;

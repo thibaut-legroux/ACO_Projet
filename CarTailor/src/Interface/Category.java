@@ -1,9 +1,9 @@
-package CarTailor.src.CarTailor;
+package CarTailor.src.Interface;
 
-import java.util.Iterator;
+import CarTailor.src.CarTailor.PartTypeImpl;
 
 public interface Category {
 	public void addPart(PartTypeImpl p);
 
-	public Iterator<PartType> removePart(PartType p);
+	public void removePart(PartTypeImpl p);
 }

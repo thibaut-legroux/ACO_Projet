@@ -9,13 +9,13 @@ public  interface Configurator
 
     public Requirement requierement = null;
 
-	public void addIncompatibility(Incomptatibility inc) ;
-	
-	public void addRequirement(Requirement req) ;
+	public void addincompatibilities(PartImpl part, PartImpl incompat);
 
-	public void removeIncompatibility(Incomptatibility inc) ;
+	public void addrequirements(PartImpl part,PartImpl incompat);
 
-	public void removeRequirement(Requirement req);
+	public void removeincompatibilities(PartImpl part,PartImpl incompat);
+
+	public void removerequirements(PartImpl part,PartImpl incompat);
 
 	public Requirement getrequirements();
 
