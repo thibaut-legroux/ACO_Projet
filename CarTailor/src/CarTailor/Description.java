@@ -16,9 +16,6 @@ public class Description {
      * <!--  end-user-doc  -->
      * @generated
      */
-    public Description(){
-        super();
-    }
 
     public Description(String description) {
         this.Description = description;

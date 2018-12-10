@@ -2,6 +2,7 @@ package CarTailor.src.CarTailor;
 
 
 import CarTailor.src.Interface.Category;
+import CarTailor.src.Interface.PartType;
 
 import java.util.*;
 
@@ -32,5 +33,16 @@ public  class CategoryImpl implements Category {
 		public Collection<PartTypeImpl> getPart(){
 			return this.parts;
 		}
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		category = category;
+	}
 
 }
