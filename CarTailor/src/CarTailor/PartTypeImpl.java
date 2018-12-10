@@ -28,8 +28,8 @@ public  class PartTypeImpl implements CarTailor.src.CarTailor.PartType {
 //	  
 //  }
 	
-	public PartTypeImpl(){
-		//� faire
+	public PartTypeImpl(Category cat, Collection<Part> parts){
+		this.category=cat;
 	}
 
 	public  PartTypeImpl(String name, String description, Category category, Class<? extends Part> classref) {

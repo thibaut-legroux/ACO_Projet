@@ -8,11 +8,15 @@ import java.util.Iterator;
 
 public class IHM implements Observer{
 
+    Interior interieur = new Interior();
+    Exterior exterieur = new Exterior();
+    Engine moteur = new Engine();
+    Transmission transmission = new Transmission();
+
+
+    IncompatibilityManager incompatibilityManager = new IncompatibilityManager();
+
     public static void main(String[]args){
-        Interior interieur = new Interior();
-        Exterior exterieur = new Exterior();
-        Engine moteur = new Engine();
-        Transmission transmission = new Transmission();
     JFrame fenetre=new JFrame();
     fenetre.setTitle("CarTailor");
     fenetre.setSize(400, 500);

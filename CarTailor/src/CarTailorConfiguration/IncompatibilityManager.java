@@ -1,14 +1,25 @@
 package CarTailor.src.CarTailorConfiguration;
 
+import CarTailor.src.CarTailor.Part;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class IncompatibilityManager {
 
+    HashMap<Part, Part> incomptatibility = new HashMap<>();
+    HashMap<Part, Part> requirement = new HashMap<>();
+
     /**
      * <!-- begin-user-doc -->
      * <!--  end-user-doc  -->
      * @generated
      */
-    public IncompatibilityManager(){
-        super();
+
+    public IncompatibilityManager(HashMap<Part,Part> incomp,HashMap<Part, Part> require){
+        this.incomptatibility=incomp;
+        this.requirement=require;
     }
 
     /**
@@ -18,8 +29,10 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public void addincompatibilities(Incomptatibility parameter) {
-        // TODO implement me
+    public void addincompatibilities(Part part, Part incompat){
+        if(!incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
+            incomptatibility.put(part, incompat);
+        }
     }
 
     /**
@@ -29,8 +42,10 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public void removeincompatibilities(Incomptatibility parameter) {
-        // TODO implement me
+    public void removeincompatibilities(Part part,Part incompat) {
+        if(incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
+            incomptatibility.remove(part,incompat);
+        }
     }
 
     /**
@@ -40,8 +55,10 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public void addrequirements(Requirement parameter) {
-        // TODO implement me
+    public void addrequirements(Part part,Part incompat) {
+        if(!requirement.containsKey(part)&&requirement.containsValue(incompat)){
+            requirement.put(part, incompat);
+        }
     }
 
     /**
@@ -51,8 +68,10 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public void removerequirements(Requirement parameter) {
-        // TODO implement me
+    public void removerequirements(Part part,Part incompat) {
+        if(requirement.containsKey(part)&&requirement.containsValue(incompat)){
+            requirement.remove(part,incompat);
+        }
     }
 
     /**
@@ -62,9 +81,8 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public Requirement getrequirements() {
-        // TODO implement me
-        return null;
+    public Requirement getrequirements(Part part) {
+        return requirement.;
     }
 
     /**
@@ -75,7 +93,7 @@ public class IncompatibilityManager {
      */
 
     public Incomptatibility getincompatibilities() {
-        // TODO implement me
+
         return null;
     }
 }
