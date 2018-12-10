@@ -1,5 +1,6 @@
 package CarTailor.src.CarTailor;
 
+import CarTailor.src.CarTailor.*;
 import CarTailor.src.Category.*;
 import CarTailor.src.Interface.Observable;
 import CarTailor.src.Interface.Observer;

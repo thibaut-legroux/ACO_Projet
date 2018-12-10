@@ -1,5 +1,8 @@
 package CarTailor.src.CarTailor;
 
+import CarTailor.src.Interface.Category;
+import CarTailor.src.CarTailor.ConflictingRoleException;
+import CarTailor.src.Interface.Part;
 import CarTailor.src.Interface.PartType;
 
 public  class PartTypeImpl implements PartType {
