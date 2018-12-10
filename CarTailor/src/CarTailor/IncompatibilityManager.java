@@ -2,9 +2,7 @@ package CarTailor.src.CarTailor;
 
 import CarTailor.src.Interface.Part;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class IncompatibilityManager {
 
@@ -83,9 +81,9 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public Requirement getrequirements(Part part) {
+   /* public Requirement getrequirements(Part part) {
         return this.requirement.values();
-    }
+    }*/
 
     /**
      * <!-- begin-user-doc -->
@@ -94,7 +92,7 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public Incomptatibility getincompatibilities() {
+    public Incompatibility getincompatibilities() {
 
         return null;
     }

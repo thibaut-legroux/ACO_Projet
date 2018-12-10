@@ -2,18 +2,13 @@ package CarTailor.src.Interface;
 
 import CarTailor.src.CarTailor.*;
 
-public  interface Configurator 
+import java.util.Collection;
+
+public interface Configurator
 {
-
-    public Requirement requierement = null;
-
-	public void addincompatibilities(PartImpl part, PartImpl incompat);
-
-	public void addrequirements(PartImpl part,PartImpl incompat);
-
-	public void removeincompatibilities(PartImpl part,PartImpl incompat);
-
-	public void removerequirements(PartImpl part,PartImpl incompat);
-
+	Collection<CategoryImpl> getCategory();
+	CompatibleManagerImpl getCompatibilityManager();
+	ConfigurationImpl getConfig();
+	PartTypeImpl getSelectionForCategory(CategoryImpl c);
 }
 

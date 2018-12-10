@@ -1,62 +1,14 @@
 package CarTailor.src.Interface;
 
+import CarTailor.src.CarTailor.CategoryImpl;
+import CarTailor.src.CarTailor.PartTypeImpl;
+
 public interface Configuration {
 
-  public Configuration getconfiguration();
+   PartTypeImpl getSelection(CategoryImpl category);
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
+   void removePart(PartTypeImpl partype);
 
-  public void showlistpartcategories();
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
-
-  public void selectcategory();
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
-
-  public void selectpartcategory();
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
-
-  public boolean isvalidconfiguration();
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
-
-  public boolean isincompatible();
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!--  end-user-doc  -->
-   * @generated
-   * @ordered
-   */
-
-  public boolean removepart(PartType partype);
-
-  public boolean addpart (PartType partype);
+   void addPart (PartTypeImpl partype);
 
 }

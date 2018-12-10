@@ -1,5 +1,5 @@
 package CarTailor.src.Interface;
 
-public interface Observer {
+public interface Observer<C> {
 	public void update(CarTailor.src.Interface.Observable o);
 }

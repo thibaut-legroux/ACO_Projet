@@ -5,14 +5,23 @@ import CarTailor.src.Interface.PartType;
 
 import java.util.Iterator;
 
-public class CompatibilityCheckerImpl implements CarTailor.src.CarTailor.CompatibilityChecker {
-
+public class CompatibilityCheckerImpl implements CompatibilityChecker {
+	@Override
 	public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
+		return null;
+	}
+
+	@Override
+	public Iterator<PartType> getRequirements(PartType refPar) {
+		return null;
+	}
+
+	/*public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
 		return refPar.getIncompPartType();
 	}
 
 	public Iterator<PartType> getRequirements(PartType refPar) {
 		return refPar.getRequirement();
 	}
-
+*/
 }

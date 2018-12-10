@@ -2,24 +2,22 @@ package CarTailor.src.CarTailor;
 
 import CarTailor.src.Interface.PartType;
 
-import java.util.*;
-
 public  class PartTypeImpl implements PartType {
 
     public String name, description;
 	private CategoryImpl category;
-	private Collection<Incomptatibility> incompatibleParts;
-	private Collection<Requirement> requirementPart;
 
-	public PartTypeImpl(CategoryImpl cat, String name, String description)
+	public PartTypeImpl(String name, String description)
 	{
-		this.category = cat;
 		this.description = description;
 		this.name = name;
-		this.requirementPart = new HashSet<>();
-		this.incompatibleParts = new HashSet<>();
+		//this.requirementPart = new HashSet<>();
+		//this.incompatibleParts = new HashSet<>();
 	}
 
+	public void setCategory(CategoryImpl cat){
+		this.category = cat;
+	}
 	@Override
 	public String getName() {
 		return this.name;
@@ -31,31 +29,26 @@ public  class PartTypeImpl implements PartType {
 	}
 
 	@Override
-	public void setdescription(String description) {
-		this.description = description;	
-	}
-
-	@Override
 	public String getDescription() {
 		return this.description;
 	}
 
-	@Override
-	public void addIncompability(Incomptatibility incomptatibility) {
-		if(!incompatibleParts.contains(incomptatibility)){
-			incompatibleParts.add(incomptatibility);
+	/*@Override
+	public void addIncompability(Incompatibility incompatibility) {
+		if(!incompatibleParts.contains(incompatibility)){
+			incompatibleParts.add(incompatibility);
 		}
 	}
 
 	@Override
-	public void removeIncompability(Incomptatibility incomptatibility) {
-		if(!incompatibleParts.contains(incomptatibility)){
-			incompatibleParts.remove(incomptatibility);
+	public void removeIncompability(Incompatibility incompatibility) {
+		if(!incompatibleParts.contains(incompatibility)){
+			incompatibleParts.remove(incompatibility);
 		}
 	}
 
 	@Override
-	public Collection<Incomptatibility> getIncompatibility() {
+	public Collection<Incompatibility> getIncompatibility() {
 		return incompatibleParts;
 	}
 
@@ -76,5 +69,5 @@ public  class PartTypeImpl implements PartType {
 	@Override
 	public Collection<Requirement> getRequirement() {
 		return requirementPart;
-	}
+	}*/
 }
