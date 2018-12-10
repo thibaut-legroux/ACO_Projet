@@ -10,7 +10,6 @@ import java.util.List;
 class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
   
 	public Collection<Part> listPart;
-
 	@Override
 	public void addPart(Part partType) {
 		if(!listPart.contains(partType)) {

@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public  enum CategoryImpl implements Category {
+public  enum CategoryImpl implements CarTailor.src.Interface.Category {
 	//PartTypeImpl p;
 		Engine("Engine"),
 		Transmission("Transmission"),
 		Exterior("Exterior"),
-		Interrior("Interrior");	
-		
+		Interrior("Interrior");
+
 		private String name;
 		private List<PartType> parts;
 		private CategoryImpl(String name) {
@@ -26,9 +26,9 @@ public  enum CategoryImpl implements Category {
 
 		@Override
 		public void addPart(PartTypeImpl p) {
-			if (parts.contains(p)) {
+			if(parts.contains(p)) {
 				this.parts.remove(p);
-			} else {
+			}else {
 				try {
 					throw new ConflictingRoleException("the partType isn't exists");
 				} catch (ConflictingRoleException e) {

@@ -1,5 +1,6 @@
 package CarTailor.src.CarTailor;
 
+import CarTailor.src.CarTailor.IncompatibilityManager;
 import CarTailor.src.CarTailor.PartTypeImpl;
 import CarTailor.src.Interface.Configurator;
 

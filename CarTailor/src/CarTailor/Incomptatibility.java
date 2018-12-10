@@ -1,8 +1,10 @@
 package CarTailor.src.CarTailor;
 
+
 import CarTailor.src.CarTailor.PartTypeImpl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Incomptatibility extends IncompatibilityManager{
 
@@ -12,8 +14,9 @@ public class Incomptatibility extends IncompatibilityManager{
      * <!--  end-user-doc  -->
      * @generated
      */
-    public Incomptatibility(){
-        super();
+    public Incomptatibility(HashMap<PartImpl,PartImpl> incomp, HashMap<PartImpl, PartImpl> require){
+
+        super(incomp,require);
     }
 
 

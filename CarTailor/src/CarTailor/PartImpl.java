@@ -3,6 +3,9 @@ package CarTailor.src.CarTailor;
 import CarTailor.src.Interface.Part;
 import CarTailor.src.Interface.PartType;
 
+import CarTailor.src.Interface.PartType;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,7 +17,7 @@ public class PartImpl implements CarTailor.src.Interface.Part {
 		super();
 	}
 	public PartImpl() {
-		//this.listPartType = new ArrayList<Part>();
+		this.listPartType = new ArrayList<>();
 	}
 
 	public void setPartType(Part p) {
