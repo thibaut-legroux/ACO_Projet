@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
+public class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
   
 	public Collection<Part> listPart;
 	@Override

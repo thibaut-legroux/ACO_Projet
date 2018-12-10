@@ -2,41 +2,34 @@ package CarTailor.src.CarTailor;
 
 
 import CarTailor.src.Interface.Category;
-import CarTailor.src.Interface.PartType;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
-public  class CategoryImpl implements CarTailor.src.Interface.Category {
-	//PartTypeImpl p;
+public  class CategoryImpl implements Category {
 
 		private String name;
-		private List<PartType> parts;
+		private Collection<PartTypeImpl> parts;
+
 		private CategoryImpl(String name) {
 			this.name = name;
-			parts = new ArrayList<>();
+			parts = new HashSet<>();
 		}
 
-
+		@Override
 		public void addPart(PartTypeImpl p) {
-			if(parts.contains(p)) {
-				this.parts.remove(p);
-			}else {
-				try {
-					throw new ConflictingRoleException("the partType isn't exists");
-				} catch (ConflictingRoleException e) {
-					e.printStackTrace();
-				}
+			if(!parts.contains(p)) {
+				this.parts.add(p);
 			}
 		}
 
-		public Iterator<PartType> removePart(PartTypeImpl p) {
-			Iterator<PartType> it = this.parts.iterator() ;
-			return it;
+		@Override
+		public void removePart(PartTypeImpl p) {
+			if(parts.contains(p)){
+				this.parts.remove(p);
+			}
 		}
 
-		public List<PartType> getPart(){
+		public Collection<PartTypeImpl> getPart(){
 			return this.parts;
 		}
 

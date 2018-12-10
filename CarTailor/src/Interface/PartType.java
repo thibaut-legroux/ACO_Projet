@@ -1,16 +1,26 @@
 package CarTailor.src.Interface;
 
-import java.util.Iterator;
+import CarTailor.src.CarTailor.CategoryImpl;
+import CarTailor.src.CarTailor.Incomptatibility;
+import CarTailor.src.CarTailor.Requirement;
+
+import java.util.Collection;
 
 public interface PartType {
 
-  public String getname();
+  String getName();
 
-  public void setdescription(String description );
+  CategoryImpl getCategory();
+
+  void setdescription(String description );
   
-  public String getdescription();
+  String getDescription();
   
-  public void addingIncompability(Iterator<PartType> CollectiontPartType);
-  public Iterator<PartType> getRequirement();
-  public Iterator<PartType> getIncompPartType();
+  void addIncompability(Incomptatibility incomptatibility);
+  void removeIncompability(Incomptatibility incomptatibility);
+  Collection<Incomptatibility> getIncompatibility();
+
+  void addRequirement(Requirement requirement);
+  void removeRequirement(Requirement requirement);
+  Collection<Requirement> getRequirement();
 }

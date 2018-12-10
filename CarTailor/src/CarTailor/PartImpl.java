@@ -3,21 +3,17 @@ package CarTailor.src.CarTailor;
 import CarTailor.src.Interface.Part;
 import CarTailor.src.Interface.PartType;
 
-import CarTailor.src.Interface.PartType;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class PartImpl implements CarTailor.src.Interface.Part {
 
-	List<PartType> listPartType ;
+	Collection<PartType> listPartType ;
 
-	public PartImpl(List<PartType> listPartType) {
+	public PartImpl(Collection<PartType> listPartType) {
 		super();
 	}
 	public PartImpl() {
-		this.listPartType = new ArrayList<>();
+		this.listPartType = new HashSet<>();
 	}
 
 	public void setPartType(Part p) {

@@ -20,6 +20,8 @@ public class Engine extends PartImpl {
 
 	private nb_serie printname = nb_serie.EG100;//par d?faut
 
+	Set<String> possible_Name=new HashSet<>();
+
 	public Engine(){
 		possible_Name.add(nb_serie.EG100.name());possible_Name.add(nb_serie.EG133.name());possible_Name.add(nb_serie.EG210.name());
 		possible_Name.add(nb_serie.ED110.name());possible_Name.add(nb_serie.ED180.name());possible_Name.add(nb_serie.EH120.name());
@@ -29,7 +31,6 @@ public class Engine extends PartImpl {
 	public String getName() {
 		return possible_Name.iterator().next();
 	}
-	Set<String> possible_Name=new HashSet<>();
 
 	public Iterator<String> getContent(){
 		return possible_Name.iterator();

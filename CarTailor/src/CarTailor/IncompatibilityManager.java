@@ -1,18 +1,15 @@
 package CarTailor.src.CarTailor;
-package CarTailor.src.CarTailor;
 
-import CarTailor.src.Interface.Configurator;
 import CarTailor.src.Interface.Part;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-public class IncompatibilityManager implements Configurator {
+public class IncompatibilityManager {
 
-    HashMap<PartImpl, PartImpl> incomptatibility = new HashMap<>();
-    HashMap<PartImpl, PartImpl> requirement = new HashMap<>();
+    HashMap<Part, Part> incomptatibility = new HashMap<>();
+    HashMap<Part, Part> requirement = new HashMap<>();
 
     /**
      * <!-- begin-user-doc -->
@@ -20,9 +17,12 @@ public class IncompatibilityManager implements Configurator {
      * @generated
      */
 
-    public IncompatibilityManager(HashMap<PartImpl,PartImpl> incomp,HashMap<PartImpl, PartImpl> require){
-        super();
+    public IncompatibilityManager(HashMap<Part,Part> incomp,HashMap<Part, Part> require){
+        this.incomptatibility=incomp;
+        this.requirement=require;
     }
+
+    public IncompatibilityManager(){}
 
     /**
      * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ public class IncompatibilityManager implements Configurator {
      * @ordered
      */
 
-    public void addincompatibilities(PartImpl part, PartImpl incompat){
+    public void addincompatibilities(Part part, Part incompat){
         if(!incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
             incomptatibility.put(part, incompat);
         }
@@ -44,7 +44,7 @@ public class IncompatibilityManager implements Configurator {
      * @ordered
      */
 
-    public void removeincompatibilities(PartImpl part,PartImpl incompat) {
+    public void removeincompatibilities(Part part,Part incompat) {
         if(incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
             incomptatibility.remove(part,incompat);
         }
@@ -57,7 +57,7 @@ public class IncompatibilityManager implements Configurator {
      * @ordered
      */
 
-    public void addrequirements(PartImpl part,PartImpl incompat) {
+    public void addrequirements(Part part,Part incompat) {
         if(!requirement.containsKey(part)&&requirement.containsValue(incompat)){
             requirement.put(part, incompat);
         }
@@ -70,7 +70,7 @@ public class IncompatibilityManager implements Configurator {
      * @ordered
      */
 
-    public void removerequirements(PartImpl part,PartImpl incompat) {
+    public void removerequirements(Part part,Part incompat) {
         if(requirement.containsKey(part)&&requirement.containsValue(incompat)){
             requirement.remove(part,incompat);
         }
@@ -83,8 +83,8 @@ public class IncompatibilityManager implements Configurator {
      * @ordered
      */
 
-    public Requirement getrequirements() {
-        return (Requirement) this.requirement.values();
+    public Requirement getrequirements(Part part) {
+        return this.requirement.values();
     }
 
     /**
@@ -95,6 +95,7 @@ public class IncompatibilityManager implements Configurator {
      */
 
     public Incomptatibility getincompatibilities() {
-        return (Incomptatibility) this.incomptatibility.values();
+
+        return null;
     }
 }

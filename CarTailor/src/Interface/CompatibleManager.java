@@ -1,7 +1,5 @@
 package CarTailor.src.Interface;
 
-import CarTailor.src.Interface.PartType;
-
 import java.util.Collection;
 import java.util.Iterator;
 

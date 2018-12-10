@@ -1,129 +1,80 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.Interface.Category;
-import CarTailor.src.CarTailor.ConflictingRoleException;
-import CarTailor.src.Interface.Part;
 import CarTailor.src.Interface.PartType;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-public  class PartTypeImpl implements CarTailor.src.Interface.PartType {
+public  class PartTypeImpl implements PartType {
 
-    public String name;
-	private Category category;
-	private Collection<Part> parts;
-	private Collection<PartType> incompatibleParts;
-	private Collection<PartType> requirementPart;
-	private String description;
-	private Class<? extends Part>Classref; 
-//constructor
-//  
-//  public PartTypeImpl(String name,Class<? extends Part>Classref, CategoryImpl categoryImpl ) {
-//	  
-//	  
-//  }
-	
-	public PartTypeImpl(Category cat, Collection<Part> parts){
-		this.category=cat;
-	}
+    public String name, description;
+	private CategoryImpl category;
+	private Collection<Incomptatibility> incompatibleParts;
+	private Collection<Requirement> requirementPart;
 
-	public  PartTypeImpl(String name, String description, Category category, Class<? extends Part> classref) {
-		super();
+	public PartTypeImpl(CategoryImpl cat, String name, String description)
+	{
+		this.category = cat;
+		this.description = description;
 		this.name = name;
-		this.category = category;
-		this.Classref = classref;	
-	}
-  
-	public Part newInstancePart() throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		 Constructor<? extends Part>Constructor;
-		 Constructor = Classref.getConstructor();
-		 return Constructor.newInstance();	 
-	 }
-	
-	public Iterator<PartType> getIncompatibleParts() {
-			return incompatibleParts.iterator();
-		}
-
-	public void setIncompatibleParts(Collection<PartType> incompatibleParts) {
-			this.incompatibleParts = incompatibleParts;
-		}
-
-	public Iterator<PartType> getRequirementPart() {
-			return null;
-		}
-
-	public void setRequirementPart(Collection<PartType> requirementPart) {
-			this.requirementPart = requirementPart;
-	}
-	
-	@Override
-	public String getdescription() {
-		return this.description;
-	}
-
-	/*les cas a gerer pour ajouter un imcompatibility a un partType
-	 * 1 quand il n'est pas dans les requirements on l'ajoute 
-	 * 2 quand il est dja dans la liste des incompatibmes on fait rien 
-	 * 3
-	 */
-	@Override
-	public void addingIncompability(Iterator<CarTailor.src.Interface.PartType> CollectiontPartType) {
-		//Objects.requireNonNull(refPart);
-		
-		Objects.requireNonNull(CollectiontPartType);
-		List<PartType> listimcompa =  new ArrayList();
-		List<PartType> listRequements = new ArrayList();
-		while(this.getRequirement().hasNext()) {
-			listRequements.add(this.getRequirement().next());
-		}
-		
-		while(CollectiontPartType.hasNext()) {
-			listimcompa.add(CollectiontPartType.next());
-		}
-		
-		for(PartType partType : listimcompa) {
-			//si t
-			    if(listRequements.contains(partType)) {
-					try {
-						throw new ConflictingRoleException("partType is a requirement");
-					} catch (ConflictingRoleException e) {
-						e.printStackTrace();
-					}
-					} 
-				if(listimcompa.contains(partType)) {
-					try {
-						throw new ConflictingRoleException("partType is already existe");
-					} catch (ConflictingRoleException e) {
-						e.printStackTrace();
-					}
-				}
-				listimcompa.add(this);
-			}	
+		this.requirementPart = new HashSet<>();
+		this.incompatibleParts = new HashSet<>();
 	}
 
 	@Override
-	public Iterator<PartType> getRequirement() {
-		return this.getRequirement();
-	}
-
-	@Override
-	public Iterator<PartType> getIncompPartType() {
-		return this.getIncompPartType();
-	}
-
-	@Override
-	public String getname() {
+	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public CategoryImpl getCategory() {
+		return this.category;
 	}
 
 	@Override
 	public void setdescription(String description) {
 		this.description = description;	
+	}
+
+	@Override
+	public String getDescription() {
+		return this.description;
+	}
+
+	@Override
+	public void addIncompability(Incomptatibility incomptatibility) {
+		if(!incompatibleParts.contains(incomptatibility)){
+			incompatibleParts.add(incomptatibility);
+		}
+	}
+
+	@Override
+	public void removeIncompability(Incomptatibility incomptatibility) {
+		if(!incompatibleParts.contains(incomptatibility)){
+			incompatibleParts.remove(incomptatibility);
+		}
+	}
+
+	@Override
+	public Collection<Incomptatibility> getIncompatibility() {
+		return incompatibleParts;
+	}
+
+	@Override
+	public void addRequirement(Requirement requirement) {
+		if(!requirementPart.contains(requirement)){
+			requirementPart.add(requirement);
+		}
+	}
+
+	@Override
+	public void removeRequirement(Requirement requirement) {
+		if(!requirementPart.contains(requirement)){
+			requirementPart.add(requirement);
+		}
+	}
+
+	@Override
+	public Collection<Requirement> getRequirement() {
+		return requirementPart;
 	}
 }
