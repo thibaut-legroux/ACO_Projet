@@ -8,12 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public  enum CategoryImpl implements CarTailor.src.Interface.Category {
+public  class CategoryImpl implements CarTailor.src.Interface.Category {
 	//PartTypeImpl p;
-		Engine("Engine"),
-		Transmission("Transmission"),
-		Exterior("Exterior"),
-		Interrior("Interrior");
 
 		private String name;
 		private List<PartType> parts;
@@ -23,8 +19,6 @@ public  enum CategoryImpl implements CarTailor.src.Interface.Category {
 		}
 
 
-
-		@Override
 		public void addPart(PartTypeImpl p) {
 			if(parts.contains(p)) {
 				this.parts.remove(p);
@@ -37,8 +31,6 @@ public  enum CategoryImpl implements CarTailor.src.Interface.Category {
 			}
 		}
 
-
-	@Override
 		public Iterator<PartType> removePart(PartTypeImpl p) {
 			Iterator<PartType> it = this.parts.iterator() ;
 			return it;

@@ -1,6 +1,7 @@
 package CarTailor.src.CarTailor;
 package CarTailor.src.CarTailor;
 
+import CarTailor.src.Interface.Configurator;
 import CarTailor.src.Interface.Part;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-public class IncompatibilityManager {
+public class IncompatibilityManager implements Configurator {
 
     HashMap<PartImpl, PartImpl> incomptatibility = new HashMap<>();
     HashMap<PartImpl, PartImpl> requirement = new HashMap<>();
@@ -82,10 +83,8 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public Requirement getrequirements(Part part) {
-        return this.requirement.values();
-    public Collection<PartImpl> getrequirements() {
-        return this.requirement.values();
+    public Requirement getrequirements() {
+        return (Requirement) this.requirement.values();
     }
 
     /**
@@ -95,7 +94,7 @@ public class IncompatibilityManager {
      * @ordered
      */
 
-    public Collection<PartImpl> getincompatibilities() {
-        return this.incomptatibility.values();
+    public Incomptatibility getincompatibilities() {
+        return (Incomptatibility) this.incomptatibility.values();
     }
 }
