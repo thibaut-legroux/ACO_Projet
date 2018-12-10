@@ -2,12 +2,61 @@ package CarTailor.src.Interface;
 
 public interface Configuration {
 
-  public boolean iSCompatible();
+  public Configuration getconfiguration();
 
-  public boolean iSValide();
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
 
-  public void addPart(Part part);
+  public void showlistpartcategories();
 
-  public void removePart(Part part);
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
+
+  public void selectcategory();
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
+
+  public void selectpartcategory();
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
+
+  public boolean isvalidconfiguration();
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
+
+  public boolean isincompatible();
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!--  end-user-doc  -->
+   * @generated
+   * @ordered
+   */
+
+  public boolean removepart(PartType partype);
+
+  public boolean addpart (PartType partype);
 
 }
