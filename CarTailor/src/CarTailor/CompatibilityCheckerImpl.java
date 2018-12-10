@@ -1,10 +1,11 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailor.PartType;
+import CarTailor.src.Interface.CompatibilityChecker;
+import CarTailor.src.Interface.PartType;
 
 import java.util.Iterator;
 
-public class CompatibilityCheckerImpl implements CarTailor.src.CarTailor.CompatibilityChecker {
+public class CompatibilityCheckerImpl implements CompatibilityChecker {
 
 	public Iterator<PartType> getIncompPart(PartType refPar) throws Exception {
 		return refPar.getIncompPartType();

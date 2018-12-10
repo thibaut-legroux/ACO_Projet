@@ -1,12 +1,14 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.CarTailor;
 
 import CarTailor.src.CarTailor.*;
-import carTailorConfigurator.Observable;
+import CarTailor.src.Category.*;
+import CarTailor.src.Interface.Observable;
+import CarTailor.src.Interface.Observer;
 
 import javax.swing.*;
 import java.util.Iterator;
 
-public class IHM implements Observer{
+public class IHM implements Observer {
 
     Interior interieur = new Interior();
     Exterior exterieur = new Exterior();

@@ -1,5 +1,5 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.Interface;
 
 public interface Observer {
-	public void update(carTailorConfigurator.Observable o);
+	public void update(Observable o);
 }

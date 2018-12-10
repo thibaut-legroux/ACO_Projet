@@ -1,4 +1,6 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.Interface;
+
+import CarTailor.src.CarTailor.*;
 
 public  interface Configurator 
 {

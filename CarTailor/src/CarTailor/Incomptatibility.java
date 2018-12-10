@@ -1,4 +1,4 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.CarTailor;
 
 import CarTailor.src.CarTailor.PartTypeImpl;
 

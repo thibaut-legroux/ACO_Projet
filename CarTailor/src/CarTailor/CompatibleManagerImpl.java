@@ -1,6 +1,7 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailor.PartType;
+import CarTailor.src.Interface.CompatibleManager;
+import CarTailor.src.Interface.PartType;
 
 import java.util.ArrayList;
 import java.util.Collection;

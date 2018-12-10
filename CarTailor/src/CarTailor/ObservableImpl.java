@@ -1,11 +1,12 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailorConfiguration.Observer;
+import CarTailor.src.Interface.Observable;
+import CarTailor.src.Interface.Observer;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class ObservableImpl<T> implements carTailorConfigurator.Observable {
+public class ObservableImpl<T> implements Observable {
 	private List<Observer> observers = new ArrayList<>();
 	private int etat;
 	

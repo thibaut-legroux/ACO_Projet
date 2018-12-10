@@ -1,9 +1,6 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailor.CompatibilityChecker;
-import CarTailor.src.CarTailor.Part;
-import CarTailor.src.CarTailor.PartType;
-import carTailorConfigurator.Observable;
+import CarTailor.src.Interface.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,15 +10,16 @@ import java.util.List;
 class ConfigurationImpl implements Configuration, Observer, CompatibilityChecker {
   
 	public Collection<Part> listPart;
+
 	@Override
 	public void addPart(Part partType) {
 		if(!listPart.contains(partType)) {
 			listPart.add(partType);
 		}
 	}
-	
+
 	@Override
-	public void removePart(Part part) {	
+	public void removePart(Part part) {
 		if(listPart.contains(part)) {
 			listPart.remove(part);
 		}

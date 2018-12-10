@@ -1,4 +1,6 @@
-package CarTailor.src.CarTailor;
+package CarTailor.src.Category;
+
+import CarTailor.src.CarTailor.PartImpl;
 
 import java.util.HashSet;
 import java.util.Iterator;

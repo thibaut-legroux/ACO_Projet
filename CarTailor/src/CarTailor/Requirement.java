@@ -1,7 +1,7 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.CarTailor;
 
 import CarTailor.src.CarTailor.PartTypeImpl;
-import CarTailor.src.CarTailorConfiguration.Configurator;
+import CarTailor.src.Interface.Configurator;
 
 import java.util.ArrayList;
 

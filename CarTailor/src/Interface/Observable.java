@@ -1,6 +1,6 @@
-package carTailorConfigurator;
+package CarTailor.src.Interface;
 
-import CarTailor.src.CarTailorConfiguration.Observer;
+import CarTailor.src.Interface.Observer;
 
 public interface Observable {
 	//permet � l'observateur de s'inscrire

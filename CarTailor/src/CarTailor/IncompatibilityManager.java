@@ -1,6 +1,6 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.CarTailor;
 
-import CarTailor.src.CarTailor.Part;
+import CarTailor.src.Interface.Part;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,7 +82,7 @@ public class IncompatibilityManager {
      */
 
     public Requirement getrequirements(Part part) {
-        return requirement.;
+        return this.requirement.values();
     }
 
     /**

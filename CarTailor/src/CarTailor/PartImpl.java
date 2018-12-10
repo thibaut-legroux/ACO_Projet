@@ -1,10 +1,12 @@
 package CarTailor.src.CarTailor;
 
+import CarTailor.src.Interface.Part;
+import CarTailor.src.Interface.PartType;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class PartImpl implements CarTailor.src.CarTailor.Part {
+public class PartImpl implements CarTailor.src.Interface.Part {
 
 	List<PartType> listPartType ;
 
@@ -15,7 +17,7 @@ public class PartImpl implements CarTailor.src.CarTailor.Part {
 		//this.listPartType = new ArrayList<Part>();
 	}
 
-	public void setPartType(CarTailor.src.CarTailor.Part p) {
+	public void setPartType(Part p) {
 		if(!this.listPartType.contains(p)) {
 			listPartType.add((PartType) p);
 		}else {

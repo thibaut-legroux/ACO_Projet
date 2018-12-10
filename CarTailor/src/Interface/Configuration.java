@@ -1,4 +1,4 @@
-package CarTailor.src.CarTailorConfiguration;
+package CarTailor.src.Interface;
 
 public interface Configuration {
 
@@ -6,8 +6,8 @@ public interface Configuration {
 
   public boolean iSValide();
 
-  public void addPart(CarTailor.src.CarTailor.Part part);
+  public void addPart(Part part);
 
-  public void removePart(CarTailor.src.CarTailor.Part part);
+  public void removePart(Part part);
 
 }
