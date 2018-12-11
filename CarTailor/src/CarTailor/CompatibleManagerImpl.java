@@ -1,7 +1,6 @@
 package CarTailor.src.CarTailor;
 
 import CarTailor.src.Interface.CompatibleManager;
-import CarTailor.src.Interface.PartType;
 
 import java.util.*;
 
@@ -26,7 +25,6 @@ public class CompatibleManagerImpl implements CompatibleManager {
 			temp.add(partIncomp);
 			this.incompatibility.put(partType, temp);
 		}
-
 	}
 
 	public void addRequirementPart(PartTypeImpl partType, PartTypeImpl partRequire) {

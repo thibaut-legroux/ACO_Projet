@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public interface CompatibleManager extends CompatibilityChecker {
-public interface CompatibleManager {
 
   public boolean removeInCompPartType(PartTypeImpl refPart, Collection<PartTypeImpl> collectPart);
 
