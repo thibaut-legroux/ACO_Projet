@@ -6,15 +6,18 @@ import CarTailor.src.Interface.PartType;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * L'interface Category.
+ */
 public interface CompatibleManager extends CompatibilityChecker {
 
-  public boolean removeInCompPartType(PartTypeImpl refPart, Collection<PartTypeImpl> collectPart);
+  boolean removeInCompPartType(PartTypeImpl partType, PartTypeImpl partRequire);
 
-  public boolean addInCompPartType(PartTypeImpl refPart,Iterator<PartTypeImpl> collectPartType);
+  boolean addInCompPartType(PartTypeImpl partType, PartTypeImpl partIncomp);
 
-  public boolean addRequirementPart(PartTypeImpl refPart, Iterator<PartTypeImpl> collectPartType);
+  boolean addRequirementPart(PartTypeImpl partType, PartTypeImpl partRequire);
 
-  public boolean removeRequirementPart(PartTypeImpl refPart, Iterator<PartTypeImpl> collectPartType);
+  boolean removeRequirementPart(PartTypeImpl partType, PartTypeImpl partRequire);
 
   boolean isComplete();
 

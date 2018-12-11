@@ -1,99 +1,78 @@
 package CarTailor.src.CarTailor;
 
-import CarTailor.src.Interface.Part;
+import CarTailor.src.Interface.PartType;
 
 import java.util.HashMap;
 
+/**
+ * The type Incompatibility manager.
+ */
 public class IncompatibilityManager {
 
-    HashMap<Part, Part> incomptatibility = new HashMap<>();
-    HashMap<Part, Part> requirement = new HashMap<>();
+    HashMap<PartTypeImpl, PartTypeImpl> incomptatibility = new HashMap<>();
+    HashMap<PartTypeImpl, PartTypeImpl> requirement = new HashMap<>();
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
+     * Constructeur de la classe.
+     *
+     * @param incomp  the incomp
+     * @param require the require
      */
-
-    public IncompatibilityManager(HashMap<Part,Part> incomp,HashMap<Part, Part> require){
+    public IncompatibilityManager(HashMap<PartTypeImpl,PartTypeImpl> incomp,HashMap<PartTypeImpl, PartTypeImpl> require){
         this.incomptatibility=incomp;
         this.requirement=require;
     }
 
+    /**
+     * Constructeur de classe vide.
+     */
     public IncompatibilityManager(){}
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
+     * Ajout d'une incompatibilité.
+     *
+     * @param part     la référence concerné
+     * @param incompat La nouvelle incompatibilité
      */
-
-    public void addincompatibilities(Part part, Part incompat){
+    public void addincompatibilities(PartTypeImpl part, PartTypeImpl incompat){
         if(!incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
             incomptatibility.put(part, incompat);
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
+     * Suppression d'une incompatibilité.
+     *
+     * @param part     the part
+     * @param incompat the incompat
      */
-
-    public void removeincompatibilities(Part part,Part incompat) {
+    public void removeincompatibilities(PartTypeImpl part,PartTypeImpl incompat) {
         if(incomptatibility.containsKey(part)&&incomptatibility.containsValue(incompat)){
             incomptatibility.remove(part,incompat);
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
+     * Ajout d'un prérequis.
+     *
+     * @param part     la référence concerné
+     * @param incompat Le nouveau prérequis
      */
-
-    public void addrequirements(Part part,Part incompat) {
+    public void addrequirements(PartTypeImpl part,PartTypeImpl incompat) {
         if(!requirement.containsKey(part)&&requirement.containsValue(incompat)){
             requirement.put(part, incompat);
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
+     * Suppression d'un prérequis.
+     *
+     * @param part     la référence concerné
+     * @param incompat Le nouveau prérequis
      */
-
-    public void removerequirements(Part part,Part incompat) {
+    public void removerequirements(PartTypeImpl part,PartTypeImpl incompat) {
         if(requirement.containsKey(part)&&requirement.containsValue(incompat)){
             requirement.remove(part,incompat);
         }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
-     */
-
-   /* public Requirement getrequirements(Part part) {
-        return this.requirement.values();
-    }*/
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
-     */
-
-    public Incompatibility getincompatibilities() {
-
-        return null;
     }
 }

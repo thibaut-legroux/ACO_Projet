@@ -3,45 +3,46 @@ package CarTailor.src.CarTailor;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * The type Incompatibility.
+ */
 public class Incompatibility {
 
+
     HashMap<PartImpl, PartImpl> incomptatibility = new HashMap<>();
+
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
+     * Le constructeur de la classe.
+     *
+     * @param incomp La nouvelle incompatibilité
      */
     public Incompatibility(HashMap<PartImpl,PartImpl> incomp){
+
         this.incomptatibility=incomp;
     }
 
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
-     */
-
     public ArrayList<PartTypeImpl> Incompatibility;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
-     */
 
     public PartTypeImpl part;
 
 
-
+    /**
+     * Retourne l'incompatibilité.
+     *
+     * @return Retourne l'incompatibilité
+     */
     public String getIncompatibility() {
         if(this.Incompatibility != null)
             return this.Incompatibility.toString();
         return null;
     }
 
+    /**
+     * Définir incompatibilité.
+     *
+     * @param incompatibility Le nouveau contenu de l'incompatibilité
+     */
     public void setIncompatibility(ArrayList<PartTypeImpl> incompatibility) {
         Incompatibility = incompatibility;
     }

@@ -7,48 +7,47 @@ import CarTailor.src.Interface.Configurator;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * The type Requirement.
+ */
 public class Requirement {
 
-	public Configurator configurator;
 
+	public Configurator configurator;
 
 	HashMap<PartImpl, PartImpl> requirement = new HashMap<>();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * Constructeur de la classe.
+	 *
+	 * @param require La liste des prérequis
 	 */
 	public Requirement(HashMap<PartImpl, PartImpl> require){
 		this.requirement = require;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-
 	public ArrayList<PartTypeImpl> Requirement;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 
 	public PartTypeImpl part;
 
 
-
+	/**
+	 * Obtenir les prérequis.
+	 *
+	 * @return Retourne la liste des prérequis
+	 */
 	public String getRequirement() {
 		if(this.Requirement != null)
 			return this.Requirement.toString();
 		return null;
 	}
 
+	/**
+	 * Définir les prérequis.
+	 *
+	 * @param requirement La liste de prérequis à définir.
+	 */
 	public void setRequirement(ArrayList<PartTypeImpl> requirement) {
 		Requirement = requirement;
 	}

@@ -5,16 +5,25 @@ import CarTailor.src.Interface.PartType;
 
 import java.util.*;
 
+/**
+ * The type Part.
+ */
 public class PartImpl implements CarTailor.src.Interface.Part {
 
-	Collection<PartType> listPartType ;
 
+	Collection<PartType> listPartType ;
 	public PartImpl(Collection<PartType> listPartType) {
 		super();
 	}
+
+	/**
+	 * Non implémenté dans la version rendu.
+	 */
 	public PartImpl() {
 		this.listPartType = new HashSet<>();
 	}
+
+
 
 	public void setPartType(Part p) {
 		if(!this.listPartType.contains(p)) {

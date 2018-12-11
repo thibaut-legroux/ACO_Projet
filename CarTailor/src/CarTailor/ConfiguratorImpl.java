@@ -6,16 +6,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * The type Configurator.
+ */
 public class ConfiguratorImpl implements Configurator, Observer<Configuration> {
     private ConfigurationImpl config;
     private Collection<CategoryImpl> c;
     private CompatibleManagerImpl cm;
-    
+
+    /**
+     * Creation du catalogue du configurateur.
+     */
     public ConfiguratorImpl() {
         this.init();
         this.config.addObserver(this);
     }
-
     private void init() {
         this.c = new ArrayList<CategoryImpl>();
         this.cm = new CompatibleManagerImpl(this);
@@ -111,10 +116,19 @@ public class ConfiguratorImpl implements Configurator, Observer<Configuration> {
 
     }
 
+    /**
+     * Creation d'un nouveau configurateur.
+     */
     public void newConfig(){
         this.config = new ConfigurationImpl();
     }
 
+    /**
+     * Vérifier qu'une categorie existe.
+     *
+     * @param name Le nom de la catégorie
+     * @return retourne vrai si elle existe, faux sinon
+     */
     public boolean existCategory(String name)
     {
         boolean found = false;
@@ -126,6 +140,11 @@ public class ConfiguratorImpl implements Configurator, Observer<Configuration> {
     }
 
 
+    /**
+     * Retirer une référence du configurateur.
+     *
+     * @param p la référence à retirer du configurateur
+     */
     public void removePart(PartTypeImpl p){
         this.config.removePart(p);
     }
@@ -150,6 +169,12 @@ public class ConfiguratorImpl implements Configurator, Observer<Configuration> {
         return this.config.getSelection(c);
     }
 
+    /**
+     * Retourne le contenu dans la catégorie voulu.
+     *
+     * @param name Le nom de la catégorie
+     * @return Le contenu de la catégorie
+     */
     public CategoryImpl getCategory(String name)
     {
         CategoryImpl category = null;
@@ -163,6 +188,12 @@ public class ConfiguratorImpl implements Configurator, Observer<Configuration> {
         return category;
     }
 
+    /**
+     * Retourne le contenu de la référence voulu.
+     *
+     * @param name Le nom de la référence
+     * @return La contenu de la référence
+     */
     public PartTypeImpl getPart(String name)
     {
         PartTypeImpl part = null;

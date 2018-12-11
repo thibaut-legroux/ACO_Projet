@@ -5,11 +5,22 @@ import CarTailor.src.CarTailor.ConflictingRoleException;
 import CarTailor.src.Interface.Part;
 import CarTailor.src.Interface.PartType;
 
+/**
+ * The type Part type.
+ */
 public  class PartTypeImpl implements PartType {
 
-    public String name, description;
+
+	public String name,description;
+
 	private CategoryImpl category;
 
+	/**
+	 * Constructeur de la classe .
+	 *
+	 * @param name Le nom de la référence
+	 * @param description La description de la référence
+	 */
 	public PartTypeImpl(String name, String description)
 	{
 		this.description = description;
@@ -18,20 +29,32 @@ public  class PartTypeImpl implements PartType {
 		//this.incompatibleParts = new HashSet<>();
 	}
 
+	/**
+	 * Définir la category.
+	 *
+	 * @param cat Le nom de la catégorie
+	 */
 	public void setCategory(CategoryImpl cat){
 		this.category = cat;
 	}
-	@Override
+
+	/**
+	 * Obtenir le nom de la référence.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
-	@Override
+	/**
+	 * Obtenir le nom de la catégorie.
+	 */
 	public CategoryImpl getCategory() {
 		return this.category;
 	}
 
-	@Override
+	/**
+	 * Obtenir la description de la référence.
+	 */
 	public String getDescription() {
 		return this.description;
 	}

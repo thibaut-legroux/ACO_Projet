@@ -6,21 +6,36 @@ import CarTailor.src.Interface.Observer;
 
 import java.util.*;
 
+/**
+ * The type Configuration.
+ */
 public class ConfigurationImpl implements Configuration, Observable<Configuration> {
   
 	private Map<CategoryImpl, PartTypeImpl> config;
 	private Collection<Observer<Configuration>> observer;
 
+	/**
+	 * Constructeur de la classe Configuration.
+	 */
 	public ConfigurationImpl(){
 		this.config = new HashMap<CategoryImpl, PartTypeImpl>();
 		this.observer = new ArrayList<>();
 	}
 
+	/**
+	 * Obtenir les configuration possible.
+	 *
+	 * @return la liste des incompatibilités et prérequis
+	 */
 	public Map<CategoryImpl, PartTypeImpl> getConfig(){
 		return this.config;
 	}
 
-	@Override
+
+	/**
+	 * Ajouter une référence au configurateur.
+	 * @param p La référence à ajouter
+	 */
 	public void addPart(PartTypeImpl p) {
 		if (p == null) {
 			throw new NullPointerException();
@@ -30,7 +45,10 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 		}
 	}
 
-	@Override
+	/**
+	 * Supprimer une référence du configurateur.
+	 * @param p La référence à supprimer
+	 */
 	public void removePart(PartTypeImpl p) {
 		if(this.config.containsValue(p)) {
 			this.config.remove(p.getCategory());
@@ -67,8 +85,9 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 	public PartTypeImpl getSelection(CategoryImpl c) {
 		return this.config.get(c);
 	}
-
+	
 	public int size(){
+
 		return this.config.size();
 	}
 
