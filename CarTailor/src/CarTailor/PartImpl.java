@@ -7,11 +7,15 @@ import java.util.*;
 
 /**
  * The type Part.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public class PartImpl implements CarTailor.src.Interface.Part {
 
-
 	Collection<PartType> listPartType ;
+
 	public PartImpl(Collection<PartType> listPartType) {
 		super();
 	}
@@ -23,18 +27,8 @@ public class PartImpl implements CarTailor.src.Interface.Part {
 		this.listPartType = new HashSet<>();
 	}
 
-
-
 	public void setPartType(Part p) {
-		if(!this.listPartType.contains(p)) {
-			listPartType.add((PartType) p);
-		}else {
-			try {
-				throw new  ConflictingRoleException("the partType already exists");
-			} catch (ConflictingRoleException e) {
-				e.printStackTrace();
-			}
-		}
+		listPartType.add((PartType) p);
 	}
 
 	@Override

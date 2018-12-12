@@ -1,49 +1,83 @@
 package CarTailor.src.Tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import CarTailor.src.CarTailor.CategoryImpl;
 import CarTailor.src.CarTailor.ConfiguratorImpl;
 import CarTailor.src.CarTailor.PartTypeImpl;
 import org.junit.Test;
 
-import CarTailor.src.CarTailor.ConfigurationImpl;
+import static org.junit.Assert.*;
 
-import java.lang.reflect.InvocationTargetException;
-
+/**
+ * Test de ConfiguratorImpl
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class ConfiguratorImplTest {
 
+    private ConfiguratorImpl configurator = new ConfiguratorImpl();
+
     @Test
-    public void testInit() throws NoSuchMethodException, SecurityException, InstantiationException,
-            IllegalAccessException, IllegalArgumentException, InvocationTargetException
-    {
-        ConfiguratorImpl configurator = new ConfiguratorImpl();
+    public void testSize() throws SecurityException, IllegalArgumentException {
 
         assertEquals(4, configurator.getCategory().size());
+    }
+
+    @Test
+    public void testExistCategory() throws SecurityException, IllegalArgumentException {
+
         assertTrue(configurator.existCategory("engine"));
         assertTrue(configurator.existCategory("transmission"));
         assertTrue(configurator.existCategory("exterior"));
         assertTrue(configurator.existCategory("interior"));
-        assertFalse(configurator.existCategory("test"));
 
-        assertTrue(configurator.getCategory("engine").existPart("EH120"));
-        assertFalse(configurator.getCategory("engine").existPart("TC120"));
-
-        PartTypeImpl p = configurator.getCategory("engine").getPart("EH120");
-        // assertTrue(p.existRequirement("TC120"));
-        p = configurator.getCategory("transmission").getPart("TC120");
-        // assertTrue(p.existRequirement("EH120"));
-
-        p = configurator.getCategory("transmission").getPart("TSF7");
-        // assertTrue(p.existIncompatibilities("EG100"));
-        // assertTrue(p.existIncompatibilities("ED110"));
-        p = configurator.getCategory("transmission").getPart("TS6");
-        // assertTrue(p.getIncompatibilities().isEmpty());
+        assertFalse(configurator.existCategory("door"));
+        assertFalse(configurator.existCategory("wheel"));
     }
 
+    @Test
+    public void testExistsPart() throws SecurityException, IllegalArgumentException {
+
+        assertTrue(configurator.getCategory("engine").existPart("EG100"));
+        assertTrue(configurator.getCategory("engine").existPart("EG133"));
+        assertTrue(configurator.getCategory("engine").existPart("EG210"));
+        assertTrue(configurator.getCategory("engine").existPart("ED110"));
+        assertTrue(configurator.getCategory("engine").existPart("ED180"));
+        assertTrue(configurator.getCategory("engine").existPart("EH120"));
+        assertTrue(configurator.getCategory("transmission").existPart("TM5"));
+        assertTrue(configurator.getCategory("transmission").existPart("TM6"));
+        assertTrue(configurator.getCategory("transmission").existPart("TA5"));
+        assertTrue(configurator.getCategory("transmission").existPart("TS6"));
+        assertTrue(configurator.getCategory("transmission").existPart("TSF7"));
+        assertTrue(configurator.getCategory("transmission").existPart("TC120"));
+        assertTrue(configurator.getCategory("exterior").existPart("XC"));
+        assertTrue(configurator.getCategory("exterior").existPart("XM"));
+        assertTrue(configurator.getCategory("exterior").existPart("XS"));
+        assertTrue(configurator.getCategory("interior").existPart("IN"));
+        assertTrue(configurator.getCategory("interior").existPart("IH"));
+        assertTrue(configurator.getCategory("interior").existPart("IS"));
+
+        assertFalse(configurator.getCategory("engine").existPart("TC120"));
+        assertFalse(configurator.getCategory("transmission").existPart("EG100"));
+        assertFalse(configurator.getCategory("interior").existPart("XC"));
+
+    }
+
+    @Test
+    public void testGetCategory() throws SecurityException, IllegalArgumentException {
+
+        CategoryImpl category = configurator.getCategory("engine");
+        assertEquals("engine", category.getName());
+        assertNotEquals("transmission", category.getName());
+    }
+
+    @Test
+    public void testGetPart() throws SecurityException, IllegalArgumentException {
 
 
-
-
+        PartTypeImpl partType = configurator.getCategory("transmission").getPart("TC120");
+        assertEquals("TC120", partType.getName());
+        assertNotEquals("XS", partType.getName());
+    }
 }

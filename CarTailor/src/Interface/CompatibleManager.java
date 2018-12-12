@@ -1,13 +1,13 @@
 package CarTailor.src.Interface;
 
 import CarTailor.src.CarTailor.PartTypeImpl;
-import CarTailor.src.Interface.PartType;
-
-import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * L'interface Category.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface CompatibleManager extends CompatibilityChecker {
 

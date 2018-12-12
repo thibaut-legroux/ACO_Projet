@@ -15,6 +15,13 @@ enum color {
 	TC120;
 }
 
+/**
+ * Transmission
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class Transmission extends PartImpl {
 	private color printColor = color.TM5;//par d�faut
 	

@@ -14,8 +14,14 @@ enum nb_serie {
 	ED180,
 	EH120;
 }
-
-
+/**
+ *
+ * Engine
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class Engine extends PartImpl {
 
 	private nb_serie printname = nb_serie.EG100;//par d?faut

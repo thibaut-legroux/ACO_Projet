@@ -1,5 +1,12 @@
 package CarTailor.src.Interface;
 
+/**
+ * Observer
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public interface Observer<C> {
-	public void update(CarTailor.src.Interface.Observable o);
+	void update(CarTailor.src.Interface.Observable o);
 }

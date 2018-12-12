@@ -7,9 +7,13 @@ import java.util.Collection;
 
 /**
  * L'interface CompatibilityChecker.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface CompatibilityChecker {
-	public Collection<ArrayList<PartTypeImpl>> getIncompPart(PartTypeImpl refPar) throws Exception;
+	ArrayList<PartTypeImpl> getIncompPart(PartTypeImpl refPar);
 
-	public Collection<ArrayList<PartTypeImpl>> getRequirements(PartTypeImpl refPar);
+	ArrayList<PartTypeImpl> getRequirements(PartTypeImpl refPar);
 }

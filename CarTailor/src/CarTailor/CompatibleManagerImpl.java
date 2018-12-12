@@ -4,9 +4,12 @@ import CarTailor.src.Interface.CompatibleManager;
 
 import java.util.*;
 
-
 /**
  * La classe principale de la V1, permet la vérification de la configuration
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public class CompatibleManagerImpl implements CompatibleManager {
 
@@ -19,7 +22,7 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 *
 	 * @param configurator the configurator
 	 */
-	CompatibleManagerImpl(ConfiguratorImpl configurator) {
+	public CompatibleManagerImpl(ConfiguratorImpl configurator) {
 		this.configurator = configurator;
 		this.incompatibility = new HashMap<>();
 		this.requirement = new HashMap<>();
@@ -34,12 +37,18 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 */
 	public boolean addInCompPartType(PartTypeImpl partType, PartTypeImpl partIncomp) {
 		if (this.incompatibility.containsKey(partType)) {
-			this.incompatibility.get(partType).add(partIncomp);
+			if(!this.incompatibility.get(partType).contains(partIncomp)) {
+				this.incompatibility.get(partType).add(partIncomp);
+			}
 			return true;
 		} else if(!this.incompatibility.containsKey(partType)&&!this.incompatibility.containsKey(partIncomp)){
 			ArrayList<PartTypeImpl> temp = new ArrayList<>();
 			temp.add(partIncomp);
 			this.incompatibility.put(partType, temp);
+
+			temp = new ArrayList<>();
+			temp.add(partType);
+			this.incompatibility.put(partIncomp, temp);
 			return true;
 		}else {
 			return false;
@@ -55,31 +64,34 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 */
 	public boolean addRequirementPart(PartTypeImpl partType, PartTypeImpl partRequire) {
 		if (this.requirement.containsKey(partType)) {
-			this.requirement.get(partType).add(partRequire);
+			if (!this.requirement.get(partType).contains(partRequire)) {
+				this.requirement.get(partType).add(partRequire);
+			}
 			return true;
-		} else if(!this.incompatibility.containsKey(partType)&&!this.incompatibility.containsKey(partRequire)){
+		} else if (!this.requirement.containsKey(partType) && !this.requirement.containsKey(partRequire)) {
 			ArrayList<PartTypeImpl> temp = new ArrayList<>();
 			temp.add(partRequire);
 			this.requirement.put(partType, temp);
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-
 	}
-
 
 	/**
 	 * Suppression de nouvelles incompatibilités.
 	 *
 	 * @param partType La référence qui va perdre de nouvelles incompatibilités
-	 * @param partRequire Les incompatibilités
+	 * @param partIncomp Les incompatibilités
 	 * @return retourne vrai si la suppression d'incompatibilité à réussi, faux sinon
 	 */
-	public boolean removeInCompPartType(PartTypeImpl partType, PartTypeImpl partRequire){
+	public boolean removeInCompPartType(PartTypeImpl partType, PartTypeImpl partIncomp){
 		if (this.incompatibility.containsKey(partType)) {
-			this.incompatibility.get(partType).remove(partRequire);
-			return true;
+			if(this.incompatibility.get(partType).contains(partIncomp)){
+				this.incompatibility.get(partType).remove(partIncomp);
+				return true;
+			}
+			return false;
 		}return false;
 	}
 
@@ -92,9 +104,13 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 */
 	public boolean removeRequirementPart(PartTypeImpl partType, PartTypeImpl partRequire){
 		if (this.requirement.containsKey(partType)) {
-			this.requirement.get(partType).remove(partRequire);
-			return true;
-		}return false;
+			if(this.requirement.get(partType).contains(partRequire)){
+				this.requirement.get(partType).remove(partRequire);
+				return true;
+			}
+			return false;
+		}
+		return false;
 	}
 
 	/**
@@ -104,7 +120,6 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	public boolean isComplete() {
 		return this.configurator.getConfig().size() == 4;
 	}
-
 
 	/**
 	 * Verifie que la configuration est valide.
@@ -130,8 +145,8 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 * @param refPar La référence dont on veut connaitre la collection de références incompatibles
 	 * @return renvoie la collection de références incompatible avec la pièce en question.
 	 */
-	public Collection<ArrayList<PartTypeImpl>> getIncompPart(PartTypeImpl refPar) throws Exception{
-		return this.incompatibility.values();
+	public ArrayList<PartTypeImpl> getIncompPart(PartTypeImpl refPar){
+		return this.incompatibility.get(refPar);
 	}
 
 	/**
@@ -140,8 +155,8 @@ public class CompatibleManagerImpl implements CompatibleManager {
 	 * @param refPar La référence dont on veut connaitre la collection de références prérequis
 	 * @return renvoie la collection de références prérequis à la selection de la pièce en question.
 	 */
-	public Collection<ArrayList<PartTypeImpl>> getRequirements(PartTypeImpl refPar){
-		return this.requirement.values();
+	public ArrayList<PartTypeImpl> getRequirements(PartTypeImpl refPar){
+		return this.requirement.get(refPar);
 	}
 
 	/**
@@ -175,6 +190,4 @@ public class CompatibleManagerImpl implements CompatibleManager {
 			return true;
 		}
 	}
-
-
 }

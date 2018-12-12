@@ -5,6 +5,10 @@ import CarTailor.src.CarTailor.PartTypeImpl;
 
 /**
  * L'interface Configuration.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface Configuration {
 

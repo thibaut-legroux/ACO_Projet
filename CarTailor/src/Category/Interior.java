@@ -10,10 +10,16 @@ enum nom {
 	IS;
 }
 
-
-
+/**
+ * Interior
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class Interior extends PartImpl {
 	private nom printname = nom.IN;//par d?faut
+	List<String> possibleColors = new ArrayList<String>();
 
 	public Interior(){
 		possibleColors.add(nom.IH.name());possibleColors.add(nom.IS.name());possibleColors.add(nom.IN.name());
@@ -26,8 +32,4 @@ public class Interior extends PartImpl {
 	public String getName() {
 		return printname.name();
 	}
-	List<String> possibleColors = new ArrayList<String>();
-	//ArrayList possibleColors=new ArrayList<>();
-
-
-}
+	}

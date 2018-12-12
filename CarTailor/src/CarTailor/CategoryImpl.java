@@ -1,17 +1,20 @@
 package CarTailor.src.CarTailor;
 
-
 import CarTailor.src.Interface.Category;
 
 import java.util.*;
 
 /**
  * Classe Category.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public  class CategoryImpl implements Category {
 
-		private String name;
-		private Collection<PartTypeImpl> parts;
+	private String name;
+	private Collection<PartTypeImpl> parts;
 
 	/**
 	 * Instantiation d'une nouvelle Category.
@@ -20,20 +23,19 @@ public  class CategoryImpl implements Category {
 	 * @param parts La collection de références contenu dans la catégorie
 	 */
 	public CategoryImpl(String name, Collection<PartTypeImpl> parts) {
-			this.name = name;
-			this.parts = parts;
+		this.name = name;
+		this.parts = parts;
 
-			Iterator<PartTypeImpl> it = parts.iterator();
-			while (it.hasNext()) {
-				it.next().setCategory(this);
-			}
-
+		Iterator<PartTypeImpl> it = parts.iterator();
+		while (it.hasNext()) {
+			it.next().setCategory(this);
 		}
+	}
 
 	/**
 	 * Ajouter une référence à la catégorie.
 	 *
-	 * @param   p la référence à ajouter
+	 * @param p la référence à ajouter
 	 */
 	public void addPart(PartTypeImpl p) {
 		if(!parts.contains(p)) {

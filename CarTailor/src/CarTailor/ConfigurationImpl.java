@@ -8,6 +8,10 @@ import java.util.*;
 
 /**
  * The type Configuration.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public class ConfigurationImpl implements Configuration, Observable<Configuration> {
   
@@ -17,9 +21,14 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 	/**
 	 * Constructeur de la classe Configuration.
 	 */
-	public ConfigurationImpl(){
-		this.config = new HashMap<CategoryImpl, PartTypeImpl>();
+	public ConfigurationImpl(Collection<CategoryImpl> catColl){
+		this.config = new HashMap<>();
 		this.observer = new ArrayList<>();
+
+		Iterator<CategoryImpl> it = catColl.iterator();
+		while(it.hasNext()){
+			this.config.put(it.next(), null);
+		}
 	}
 
 	/**
@@ -30,7 +39,6 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 	public Map<CategoryImpl, PartTypeImpl> getConfig(){
 		return this.config;
 	}
-
 
 	/**
 	 * Ajouter une référence au configurateur.
@@ -54,32 +62,8 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 			this.config.remove(p.getCategory());
 			this.notifyObservers();
 		}
-	}
 
-	/*@Override
-	public boolean iSCompatible() {
-		boolean test = true;
-		List<PartType> courantListe = new ArrayList<PartType>();
-		Iterator<Part> it = this.listPart.iterator();
-		while(it.hasNext()) {
-		Iterator<PartType> itCollectionPartType	= it.next().getPartType();
-			while(itCollectionPartType.hasNext()) {
-				PartType courant = itCollectionPartType.next(); 
-				while(courant.getRequirement().hasNext()) {
-						courantListe.add(courant.getRequirement().next());
-				}
-				while(courant.getIncompPartType().hasNext()) {
-					if(courantListe.contains(courant.getIncompPartType().next())) {
-						test = false;
-					}else {
-						test = true;
-					}
-				}			
-			}
-			courantListe.clear();
-		}
-		return test;
-	}*/
+	}
 
 	@Override
 	public PartTypeImpl getSelection(CategoryImpl c) {
@@ -87,7 +71,6 @@ public class ConfigurationImpl implements Configuration, Observable<Configuratio
 	}
 	
 	public int size(){
-
 		return this.config.size();
 	}
 

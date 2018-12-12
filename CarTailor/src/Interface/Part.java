@@ -4,10 +4,14 @@ import java.util.Iterator;
 
 /**
  * L'interface Part.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface Part {
 
-  public void setPartType(Part p);
-  public Iterator<PartType> getPartType();
+  void setPartType(Part p);
+  Iterator<PartType> getPartType();
 
 }

@@ -5,13 +5,17 @@ import CarTailor.src.CarTailor.CategoryImpl;
 
 /**
  * L'interface PartType.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface PartType {
 
-  public String getName();
+  String getName();
 
-  public CategoryImpl getCategory();
+  CategoryImpl getCategory();
   
-  public String getDescription();
+  String getDescription();
 
 }

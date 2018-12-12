@@ -12,7 +12,14 @@ enum couleur_exter {
 	XS;
 }
 
-
+/**
+ *
+ * Exterior
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class Exterior extends PartImpl {
 	private couleur_exter print_couleur = couleur_exter.XC;//par d�faut
 

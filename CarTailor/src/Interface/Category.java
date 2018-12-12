@@ -6,6 +6,10 @@ import java.util.Iterator;
 
 /**
  * L'interface Category.
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public interface Category {
 	void addPart(PartTypeImpl p);

@@ -1,96 +1,97 @@
 package CarTailor.src.Tests;
 
-import CarTailor.src.CarTailor.CompatibleManagerImpl;
+import CarTailor.src.CarTailor.ConfiguratorImpl;
 import CarTailor.src.CarTailor.PartTypeImpl;
-import CarTailor.src.CarTailor.CategoryImpl;
+import CarTailor.src.Interface.CompatibleManager;
 import org.junit.Test;
 
-import java.util.Collection;
-import java.util.Iterator;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-
+/**
+ * Test de CompatibilityManagerImplTest
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class CompatibilityManagerImplTest {
 
-   /* CompatibleManagerImpl compat = new CompatibleManagerImpl();
-
-
-    CategoryImpl category = new CategoryImpl("Engine");
-    Collection<PartTypeImpl> parts;
-    PartTypeImpl pt = new PartTypeImpl(category,parts);
-
-    Collection<PartTypeImpl> parts_it;
-    Iterator<PartTypeImpl> it_pt = (Iterator<PartTypeImpl>) parts_it;
+    ConfiguratorImpl configurator = new ConfiguratorImpl();
+    CompatibleManager compatibleManager = configurator.getCompatibilityManager();
 
     @Test
     public final void testAddInCompPartType(){
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+        PartTypeImpl partTypeAdd = new PartTypeImpl("TP100", "wheel");
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
+        assertTrue(compatibleManager.addInCompPartType(configurator.getCategory("engine").getPart("EG133"), partTypeAdd));
 
-        Collection<PartTypeImpl> parts_it_test = null;
-        Iterator<PartTypeImpl> it_pt_test = (Iterator<PartTypeImpl>) parts_it_test;
+        PartTypeImpl partTypeAdd2 = new PartTypeImpl("TP200", "backwheel");
 
-        assertEquals("Test d'ajout d'une incompatibilité : ",compat.addInCompPartType(pt, (Iterator<PartTypeImpl>) parts),compat_test.addInCompPartType(pt_test, (Iterator<PartTypeImpl>) parts_test));
+        assertFalse(compatibleManager.addInCompPartType(partTypeAdd2, configurator.getCategory("engine").getPart("EG133")));
+        assertTrue(compatibleManager.addInCompPartType(partTypeAdd, partTypeAdd2));
     }
 
     @Test
-    public final void testGetIncompPart() throws Exception {
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+    public final void testGetIncompPart() {
+        assertNotNull(compatibleManager.getIncompPart(configurator.getCategory("engine").getPart("EG100")));
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
-
-        assertEquals("Test de récuperation des part incompatibles : ",compat.getIncompPart(pt),compat_test.getIncompPart(pt_test));
-
+        PartTypeImpl partTypeGet = new PartTypeImpl("TP100", "wheel");
+        assertNull(compatibleManager.getIncompPart(partTypeGet));
     }
 
     @Test
     public final void testRemoveInCompPartType(){
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+        PartTypeImpl eg100 = configurator.getCategory("engine").getPart("EG100");
+        PartTypeImpl eg133 = configurator.getCategory("engine").getPart("EG133");
+        compatibleManager.addInCompPartType(eg100, eg133);
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
+        assertTrue(compatibleManager.removeInCompPartType(eg100, eg133));
 
-        assertEquals("Test de suppression de part incompatibles : ",compat.removeInCompPartType(pt,parts),compat_test.removeInCompPartType(pt_test,parts_test));
+        PartTypeImpl partTypeRemove = new PartTypeImpl("TP100", "wheel");
+        assertFalse(compatibleManager.removeInCompPartType(eg100, partTypeRemove));
 
     }
 
     @Test
     public final void testAddRequirementPart(){
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+        PartTypeImpl partTypeAdd = new PartTypeImpl("TP100", "wheel");
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
+        assertTrue(compatibleManager.addRequirementPart(configurator.getCategory("engine").getPart("EG133"), partTypeAdd));
 
-        assertEquals("Test d'ajout d'une incompatibilité : ",compat.addRequirementPart(pt, (Iterator<PartTypeImpl>) parts),compat_test.addRequirementPart(pt_test, (Iterator<PartTypeImpl>) parts_test));
+        PartTypeImpl partTypeAdd2 = new PartTypeImpl("TP200", "backwheel");
+
+        assertFalse(compatibleManager.addRequirementPart(partTypeAdd2, configurator.getCategory("engine").getPart("EG133")));
+        assertTrue(compatibleManager.addRequirementPart(partTypeAdd, partTypeAdd2));
     }
 
     @Test
     public final void testRemoveRequirementPart(){
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+        PartTypeImpl eg100 = configurator.getCategory("engine").getPart("EG100");
+        PartTypeImpl eg133 = configurator.getCategory("engine").getPart("EG133");
+        compatibleManager.addRequirementPart(eg100, eg133);
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
+        assertTrue(compatibleManager.removeRequirementPart(eg100, eg133));
 
-        assertEquals("Test de suppression de part incompatibles : ",compat.removeRequirementPart(pt, (Iterator<PartTypeImpl>) parts),compat_test.removeInCompPartType(pt_test, parts_test));
+        PartTypeImpl partTypeRemove = new PartTypeImpl("TP100", "wheel");
+        assertFalse(compatibleManager.removeRequirementPart(eg100, partTypeRemove));
     }
 
     @Test
     public final void testGetRequirements(){
-        CompatibleManagerImpl compat_test = new CompatibleManagerImpl();
+        assertNotNull(compatibleManager.getRequirements(configurator.getCategory("engine").getPart("EH120")));
+        assertNull(compatibleManager.getRequirements(configurator.getCategory("engine").getPart("EG100")));
 
-        CategoryImpl category_test = new CategoryImpl("Engine");
-        Collection<PartTypeImpl> parts_test = null;
-        PartTypeImpl pt_test = new PartTypeImpl(category_test,parts_test);
+        PartTypeImpl partTypeGet = new PartTypeImpl("TP100", "wheel");
+        assertNull(compatibleManager.getRequirements(partTypeGet));
+    }
 
-        assertEquals("Test de la récupération des test requierments : ",compat.getRequirements(pt),compat_test.getRequirements(pt_test));
-    }*/
+    @Test
+    public final void testIsComplete(){
+        assertTrue(compatibleManager.isComplete());
+    }
+
+    @Test
+    public final void testIsValid(){
+        assertTrue(compatibleManager.isValid());
+    }
 }

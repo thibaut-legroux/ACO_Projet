@@ -7,12 +7,13 @@ import java.util.Collection;
 
 /**
  * Classe de vérification des compatibilités des références.
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
  */
 public class CompatibilityCheckerImpl implements CompatibilityChecker {
 
-
 	CompatibleManagerImpl cmi;
-
 
 	/**
 	 * Récupérer les références incompatibles avec la référence voulu.
@@ -20,7 +21,7 @@ public class CompatibilityCheckerImpl implements CompatibilityChecker {
 	 * @param refPar Le nom de la référence dont on veut avoir les incompatibilités
 	 * @return les références incompatibles
 	 */
-	public Collection<ArrayList<PartTypeImpl>> getIncompPart(PartTypeImpl refPar) throws Exception {
+	public ArrayList<PartTypeImpl> getIncompPart(PartTypeImpl refPar) {
 		return cmi.getIncompPart(refPar);
 	}
 
@@ -30,10 +31,7 @@ public class CompatibilityCheckerImpl implements CompatibilityChecker {
 	 * @param refPar Le nom de la référence dont on veut connaitre les prérequis
 	 * @return les références prérequises
 	 */
-	public Collection<ArrayList<PartTypeImpl>> getRequirements(PartTypeImpl refPar) {
-
+	public ArrayList<PartTypeImpl> getRequirements(PartTypeImpl refPar) {
 		return cmi.getRequirements(refPar);
 	}
-
-
 }

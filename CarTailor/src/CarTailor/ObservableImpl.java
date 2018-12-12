@@ -7,6 +7,13 @@ import CarTailor.src.Interface.Observer;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Design Pattern ObservableImpl
+ *
+ * @author Legroux
+ * @author Mande
+ * @author Scrimali
+ */
 public class ObservableImpl<T> implements Observable {
 	private List<Observer<Configuration>> observers = new ArrayList<>();
 	private int etat;
@@ -31,40 +38,5 @@ public class ObservableImpl<T> implements Observable {
 		return false;
 	}
 	
-	/*
-	public int getEtat() {
-		return etat;
-	}
-	
-	@Override
-	public void deleteObserver(Observer<Configuration> o) {
-		observers.remove(o);
-	}
-	
-	@Override
-	public void notifyObservers() {
-		for(Observer<Configuration> o : observers) {
-			o.update(this);
-		}
 
-	}
-
-	@Override
-	public void addObserver(Observer<Configuration> o) {
-		observers.add(o);
-	}
-
-	public void setEtat(int etat) {
-		this.etat = etat;
-		notifyObservers();
-	}
-	
-	@Override
-	public boolean isRegistered(Observer<Configuration> o) {
-		if(observers.contains(o)){
-			return true;
-		}else{
-			return false;
-		}
-	}*/
 }
